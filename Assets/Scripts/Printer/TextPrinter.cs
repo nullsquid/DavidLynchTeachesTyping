@@ -32,7 +32,9 @@ public class TextPrinter : MonoBehaviour {
 			printText.text += textToPrint [i];
 			yield return new WaitForSeconds (timeBtwChars);
 		}
-		onPrintComplete ();
+		if (onPrintComplete != null) {
+			onPrintComplete ();
+		}
 	}
 
 }
