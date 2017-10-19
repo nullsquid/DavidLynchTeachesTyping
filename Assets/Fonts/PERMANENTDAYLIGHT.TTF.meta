@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 7ac2a5fa2c1e8184dad3c9bd7c35dcf3
+timeCreated: 1508381032
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Permanent daylight
+  fontNames:
+  - Permanent daylight
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
