@@ -6,7 +6,8 @@ using TMPro;
 public class TextPrinter : MonoBehaviour {
 	public TextMeshProUGUI printText;
 	public string textToPrint;
-
+	public delegate void PrintComplete();
+	public event PrintComplete onPrintComplete;
 	#region Singleton
 	public static TextPrinter instance;
 	void Awake() {
@@ -31,6 +32,7 @@ public class TextPrinter : MonoBehaviour {
 			printText.text += textToPrint [i];
 			yield return new WaitForSeconds (timeBtwChars);
 		}
+		onPrintComplete ();
 	}
 
 }
