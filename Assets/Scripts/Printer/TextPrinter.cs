@@ -8,6 +8,7 @@ public class TextPrinter : MonoBehaviour {
 	public string textToPrint;
 	public delegate void PrintComplete();
 	public event PrintComplete onPrintComplete;
+
 	#region Singleton
 	public static TextPrinter instance;
 	void Awake() {
@@ -28,6 +29,7 @@ public class TextPrinter : MonoBehaviour {
 	}
 
 	IEnumerator PrintText(float timeBtwChars){
+		
 		for (int i = 0; i < textToPrint.Length; i++) {
 			printText.text += textToPrint [i];
 			yield return new WaitForSeconds (timeBtwChars);
