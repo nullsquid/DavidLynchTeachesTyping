@@ -19,7 +19,17 @@ public class StageManager : MonoBehaviour {
 	#endregion
 
 	void Start(){
-		StartStage (0);
+		for (int i = 0; i < stages.Count; i++) {
+			if (i == 0) {
+				//if(stages[i] != null)
+				stages [i].gameObject.SetActive (true);
+				StartStage (0);
+			} else {
+				if(stages[i] != null)
+				stages [i].gameObject.SetActive (false);
+			}
+		}
+
 	}
 
 
@@ -29,8 +39,41 @@ public class StageManager : MonoBehaviour {
 		case 0:
 			stages [0].StartStage ();
 			break;
-
+		case 1:
+			for (int i = 0; i < stages.Count; i++) {
+				if(stages[i] != null)
+				stages [i].gameObject.SetActive (false);
+			}
+			stages [1].gameObject.SetActive (true);
+			stages [1].StartStage ();
+			break;
+		case 2:
+			for (int i = 0; i < stages.Count; i++) {
+				if(stages[i] != null)
+				stages [i].gameObject.SetActive (false);
+			}
+			stages [2].gameObject.SetActive (true);
+			stages [2].StartStage ();	
+			break;
+		case 3:
+			for (int i = 0; i < stages.Count; i++) {
+				if(stages[i] != null)
+					stages [i].gameObject.SetActive (false);
+			}
+			stages [3].gameObject.SetActive (true);
+			stages [3].StartStage ();	
+			break;
+		case 4:
+			for (int i = 0; i < stages.Count; i++) {
+				if(stages[i] != null)
+					stages [i].gameObject.SetActive (false);
+			}
+			stages [4].gameObject.SetActive (true);
+			stages [4].StartStage ();	
+			break;
+			
 		default:
+			
 			break;
 		}
 	}

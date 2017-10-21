@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stage_0 : Stage {
 
-	public void OnEnable(){
+	public void Start(){
 		TextPrinter.instance.onPrintComplete += EndStage;
 	}
 
@@ -14,7 +14,7 @@ public class Stage_0 : Stage {
 
 	public override void StartStage(){
 		
-		TextPrinter.instance.InvokePrint ("press any key to begin", 0.05f);
+		TextPrinter.instance.InvokeStartPrint ("press any key to begin", 0.05f);
 	}
 
 	public override void EndStage(){
@@ -23,7 +23,7 @@ public class Stage_0 : Stage {
 
 	void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
-			Debug.Log ("next stage");
+			StageManager.instance.StartStage (1);
 		}
 	}
 }
