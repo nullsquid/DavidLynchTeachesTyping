@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Stage_2 : Stage {
 
-	public void Start(){
+	public void OnEnable(){
 		TextPrinter.instance.onPrintComplete += EndStage;
 	}
 
