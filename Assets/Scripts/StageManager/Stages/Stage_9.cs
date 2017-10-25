@@ -12,8 +12,8 @@ public class Stage_9 : Stage {
     public GameObject FPrefab;
     public GameObject playSpace;
 
-    List<GameObject> JList = new List<GameObject>();
-    List<GameObject> FList = new List<GameObject>();
+    public List<GameObject> JList = new List<GameObject>();
+    public List<GameObject> FList = new List<GameObject>();
     public void OnEnable() {
         if (TextPrinter.instance != null)
             TextPrinter.instance.onPrintComplete += EndStage;
@@ -24,7 +24,10 @@ public class Stage_9 : Stage {
     }
 
     public override void StartStage() {
-
+        for(int i = 0; i < 3; i++) {
+            FList[i].SetActive(false);
+            JList[i].SetActive(false);
+        }
         TextPrinter.instance.printText = GameObject.Find("MainText_9").GetComponent<TextMeshProUGUI>();
         StartCoroutine(StartMinigame());
 
@@ -36,11 +39,30 @@ public class Stage_9 : Stage {
     }
 
     void Update() {
-        if(FList.Count > 0 && Input.GetKeyDown(KeyCode.F)) {
-            GameObject curF = FList[0];
-            Destroy(curF);
-            FList.Remove(curF);
-            
+        if(Input.GetKeyDown(KeyCode.F) && ((GameObject.Find("FKey0") != null && GameObject.Find("FKey0").activeSelf == true) || (GameObject.Find("FKey1") != null && GameObject.Find("FKey1").activeSelf == true) || (GameObject.Find("FKey2") != null && GameObject.Find("FKey2").activeSelf == true))) {
+            if(GameObject.Find("FKey0").activeSelf == true) {
+                Destroy(GameObject.Find("FKey0"));
+            }
+            else if (GameObject.Find("FKey1").activeSelf == true) {
+                Destroy(GameObject.Find("FKey1"));
+            }
+            else if (GameObject.Find("FKey2").activeSelf == true) {
+                Destroy(GameObject.Find("FKey2"));
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.J) && (GameObject.Find("JKey0").activeSelf == true || GameObject.Find("JKey1").activeSelf == true || GameObject.Find("JKey2").activeSelf == true)) {
+            if (GameObject.Find("JKey0").activeSelf == true) {
+                Destroy(GameObject.Find("JKey0"));
+                //points += 1;
+            }
+            else if (GameObject.Find("JKey1").activeSelf == true) {
+                Destroy(GameObject.Find("JKey1"));
+                //points += 1;
+            }
+            else if (GameObject.Find("JKey2").activeSelf == true) {
+                Destroy(GameObject.Find("JKey2"));
+                //points += 1;
+            }
         }
     }
 
@@ -54,24 +76,21 @@ public class Stage_9 : Stage {
     }
 
     IEnumerator Minigame() {
-        int randNum;
-        
-        while (points <= 5) {
-            yield return new WaitForSeconds(Random.Range(.5f, 2));
-            randNum = Random.Range(0, 100);
-            if(randNum < 50) {
-                GameObject newJ = Instantiate(JPrefab);
-                newJ.transform.SetParent(playSpace.transform);
-                JList.Add(newJ);
+        FList[0].SetActive(true);
+        yield return new WaitForSeconds(2);
+        JList[0].SetActive(true);
+        yield return new WaitForSeconds(2);
+        FList[1].SetActive(true);
+        yield return new WaitForSeconds(2);
+        JList[1].SetActive(true);
+        yield return new WaitForSeconds(2);
+        FList[2].SetActive(true);
+        yield return new WaitForSeconds(2);
+        JList[2].SetActive(true);
+        yield return new WaitForSeconds(2);
 
-            }
-            else {
-                GameObject newF = Instantiate(FPrefab);
-                FList.Add(newF);
-            }
-        }
-        Debug.Log("win?");
-        yield return null;
+        //yield return null;
+
     }
     
 }
