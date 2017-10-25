@@ -11,6 +11,7 @@ public class ScrollController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //scrollRect.
+        if(scrollBar != null)
         scrollBar.value = 0;
 	}
 }

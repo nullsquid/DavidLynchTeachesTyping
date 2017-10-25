@@ -27,11 +27,11 @@ public class Stage_8 : Stage {
     }
 
     void Update() {
-        /*if (stageIsComplete == true && Input.GetKeyDown(KeyCode.F)) {
+        if (stageIsComplete == true && Input.anyKeyDown) {
             TextPrinter.instance.onPrintComplete -= EndStage;
             //play animation?
-            StageManager.instance.StartStage(4);
-        }*/
+            StageManager.instance.StartStage(9);
+        }
     }
     IEnumerator InvokeErrorText() {
         mainCamera.GetComponent<CameraGlitch>().enabled = true;
