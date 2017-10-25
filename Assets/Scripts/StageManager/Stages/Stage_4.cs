@@ -16,9 +16,10 @@ public class Stage_4 : Stage {
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_4").GetComponent<TextMeshProUGUI>();
 		StartCoroutine (ShowThumbsUp ());
-	}
 
-	public override void EndStage(){
+    }
+
+    public override void EndStage(){
 		stageIsComplete = true;
 	}
 
@@ -32,6 +33,8 @@ public class Stage_4 : Stage {
 
 	IEnumerator ShowThumbsUp(){
 		yield return new WaitForSeconds (1);
-		TextPrinter.instance.InvokePrint ("Wow! Excellent! Well Done! Let's move on to the next key.\n\npress 'F' continue", 0.05f);
-	}
+		TextPrinter.instance.InvokePrint ("Wow! Excellent! Well Done! Let's move on to the next key.\n\npress 'F' continue", 0.08f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_4");
+
+    }
 }

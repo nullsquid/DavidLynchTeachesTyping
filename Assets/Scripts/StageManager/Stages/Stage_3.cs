@@ -15,10 +15,12 @@ public class Stage_3 : Stage {
 
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_3").GetComponent<TextMeshProUGUI>();
-		TextPrinter.instance.InvokePrint ("Now... Using your left index finger, push down on the F Key\n\npress 'F' continue", 0.05f);
-	}
+		TextPrinter.instance.InvokePrint ("Now... Using your left index finger, push down on the F Key\n\npress 'F' continue", 0.08f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_3");
 
-	public override void EndStage(){
+    }
+
+    public override void EndStage(){
 		stageIsComplete = true;
 	}
 
