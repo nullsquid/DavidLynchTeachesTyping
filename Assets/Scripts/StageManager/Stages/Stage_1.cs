@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class Stage_1 : Stage {
 
 	public void Start(){
@@ -22,10 +23,29 @@ public class Stage_1 : Stage {
     public override void EndStage(){
 		stageIsComplete = true;
 	}
-
+    public Image blackSolid;
+    float t = 0;
+    Color temp;
 	void Update(){
-		if (stageIsComplete == true && Input.anyKeyDown) {
+        //testing
+        
+        if (stageIsComplete == true && Input.anyKeyDown) {
 			StageManager.instance.StartStage (2);
 		}
+        //test code for the fade out
+        /*
+        if (Input.GetKey(KeyCode.A)) {
+            t += Time.deltaTime / 3;
+            temp.a = Mathf.Lerp(0, 1, t);
+            blackSolid.color = temp;
+        }
+        else if (Input.GetKeyUp(KeyCode.A)) {
+            //t -= Time.deltaTime / 3;
+            t = 0;
+            temp.a = 0;
+            blackSolid.color = temp;
+        }
+        */
 	}
+    
 }

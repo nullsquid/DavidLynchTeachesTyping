@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Video;
+using UnityEngine.UI;
 public class Stage_11 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
+    public Image blackSolid;
+    float t = 0;
+    Color temp;
     public void OnEnable() {
+
         TextPrinter.instance.onPrintComplete += EndStage;
     }
 
@@ -27,12 +32,27 @@ public class Stage_11 : Stage {
     }
 
     void Update() {
-        if (stageIsComplete == true && Input.GetKeyDown(KeyCode.A)) {
+        if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
-            StartCoroutine(StartVideo());
+            t += Time.deltaTime / 3;
+            temp.a = Mathf.Lerp(0, 1, t);
+            blackSolid.color = temp;
+            if (t == 1) {
+                StartCoroutine(StartVideo());
+            }
         }
+        
+        else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A)) {
+            //t -= Time.deltaTime / 3;
+            t = 0;
+            temp.a = 0;
+            blackSolid.color = temp;
+            TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key\n\nHold the 'A' key...", 0.08f);
+
+        }
+
     }
 
     IEnumerator StartVideo() {
