@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 2037773}
   - component: {fileID: 2037772}
   - component: {fileID: 2037771}
+  - component: {fileID: 2037775}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -223,6 +224,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2037769}
+--- !u!95 &2037775
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037769}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 73a1995b53edb3e4abe2efb7279d98ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &15898672 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1143454868406188, guid: 5706359300f06884fb6770d483ac1b35,
@@ -951,7 +969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2617749, y: 0.34628785}
-  m_AnchoredPosition: {x: -34.5, y: -36}
+  m_AnchoredPosition: {x: -34.50006, y: -36}
   m_SizeDelta: {x: 43, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158908416
@@ -2038,6 +2056,7 @@ GameObject:
   - component: {fileID: 247970547}
   - component: {fileID: 247970549}
   - component: {fileID: 247970548}
+  - component: {fileID: 247970550}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -2096,6 +2115,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 247970546}
+--- !u!95 &247970550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 247970546}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d95330eb2cf34b4c8368a4cb10be9d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &249112662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,7 +2466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.8296901, y: 0.42600003}
-  m_AnchoredPosition: {x: 0, y: -14.499962}
+  m_AnchoredPosition: {x: 0, y: -14.4999695}
   m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &276108926
@@ -3303,7 +3339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.8296901, y: 0.42600003}
-  m_AnchoredPosition: {x: 0, y: -14.499962}
+  m_AnchoredPosition: {x: 0, y: -14.4999695}
   m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381273002
@@ -4505,6 +4541,7 @@ GameObject:
   - component: {fileID: 486658712}
   - component: {fileID: 486658714}
   - component: {fileID: 486658713}
+  - component: {fileID: 486658715}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -4563,6 +4600,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486658711}
+--- !u!95 &486658715
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486658711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6dbf1f987db0e8f4a92a2b09a5b99d80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &497535797
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,6 +5952,7 @@ GameObject:
   - component: {fileID: 616634685}
   - component: {fileID: 616634687}
   - component: {fileID: 616634686}
+  - component: {fileID: 616634688}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -5956,6 +6011,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 616634684}
+--- !u!95 &616634688
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616634684}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9d3b4e3cca356e74184358b4a94b5325, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &631242348
 GameObject:
   m_ObjectHideFlags: 0
@@ -6646,6 +6718,7 @@ GameObject:
   - component: {fileID: 818089151}
   - component: {fileID: 818089153}
   - component: {fileID: 818089152}
+  - component: {fileID: 818089154}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -6704,6 +6777,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818089150}
+--- !u!95 &818089154
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818089150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 914eaa88a2e9e22418bad12c4cdaf169, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &830708985
 GameObject:
   m_ObjectHideFlags: 0
@@ -7051,6 +7141,7 @@ GameObject:
   - component: {fileID: 868198653}
   - component: {fileID: 868198655}
   - component: {fileID: 868198654}
+  - component: {fileID: 868198656}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -7109,6 +7200,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 868198652}
+--- !u!95 &868198656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 868198652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e1f0cd786739994097f9a2a12dccf29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &868795332
 GameObject:
   m_ObjectHideFlags: 0
@@ -7462,7 +7570,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8173,6 +8281,7 @@ GameObject:
   - component: {fileID: 955307153}
   - component: {fileID: 955307155}
   - component: {fileID: 955307154}
+  - component: {fileID: 955307156}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -8231,6 +8340,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 955307152}
+--- !u!95 &955307156
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 955307152}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecf975d2e2dbc944ab964166a1477e91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &996495248
 GameObject:
   m_ObjectHideFlags: 0
@@ -9044,7 +9170,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.14117432, y: 0.000015258789}
-  m_SizeDelta: {x: -22, y: -173.10248}
+  m_SizeDelta: {x: -22, y: 0}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1085839431
 MonoBehaviour:
@@ -9506,6 +9632,7 @@ GameObject:
   - component: {fileID: 1109981392}
   - component: {fileID: 1109981394}
   - component: {fileID: 1109981393}
+  - component: {fileID: 1109981395}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -9564,6 +9691,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1109981391}
+--- !u!95 &1109981395
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1109981391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54a04a6bbec156c44bfdc03cc5fe9350, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1113600367
 GameObject:
   m_ObjectHideFlags: 0
@@ -10081,6 +10225,7 @@ GameObject:
   - component: {fileID: 1186182329}
   - component: {fileID: 1186182331}
   - component: {fileID: 1186182330}
+  - component: {fileID: 1186182332}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -10139,6 +10284,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1186182328}
+--- !u!95 &1186182332
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1186182328}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83d9adf7bf16b7c4980cd4640028f815, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1193856739
 GameObject:
   m_ObjectHideFlags: 0
@@ -11997,6 +12159,7 @@ GameObject:
   - component: {fileID: 1476093373}
   - component: {fileID: 1476093375}
   - component: {fileID: 1476093374}
+  - component: {fileID: 1476093376}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -12055,6 +12218,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1476093372}
+--- !u!95 &1476093376
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476093372}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfec3eaf21673c34b99c150266cbbd37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1478541745
 GameObject:
   m_ObjectHideFlags: 0
@@ -13261,6 +13441,7 @@ GameObject:
   - component: {fileID: 1687414343}
   - component: {fileID: 1687414345}
   - component: {fileID: 1687414344}
+  - component: {fileID: 1687414346}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -13319,6 +13500,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1687414342}
+--- !u!95 &1687414346
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687414342}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8929a1e015c031419420f9bd11f4dea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1697845840
 GameObject:
   m_ObjectHideFlags: 0
@@ -13513,7 +13711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.38110662, y: 0}
   m_AnchorMax: {x: 0.6454721, y: 0.31362954}
-  m_AnchoredPosition: {x: -7.43412, y: -54.71489}
+  m_AnchoredPosition: {x: -7.43412, y: -54.714935}
   m_SizeDelta: {x: 27, y: 77}
   m_Pivot: {x: 0.61725336, y: 0.199488}
 --- !u!114 &1712697290
@@ -14351,7 +14549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2617749, y: 0.34628785}
-  m_AnchoredPosition: {x: -34.5, y: -36}
+  m_AnchoredPosition: {x: -34.50006, y: -36}
   m_SizeDelta: {x: 43, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790809545
@@ -14520,7 +14718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1837041920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14588,6 +14786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageIsComplete: 0
   mirrorMode: 0
+  animator: {fileID: 818089154}
   blackSolid: {fileID: 1001564951}
 --- !u!1 &1840586790
 GameObject:
@@ -15817,6 +16016,7 @@ GameObject:
   - component: {fileID: 1986814922}
   - component: {fileID: 1986814924}
   - component: {fileID: 1986814923}
+  - component: {fileID: 1986814925}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -15875,6 +16075,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986814921}
+--- !u!95 &1986814925
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986814921}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fb7520826969944eb6635711c81e22d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1992898914
 Prefab:
   m_ObjectHideFlags: 0
@@ -16502,7 +16719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.8296901, y: 0.42600003}
-  m_AnchoredPosition: {x: 0, y: -14.499962}
+  m_AnchoredPosition: {x: 0, y: -14.4999695}
   m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033256692
@@ -16676,6 +16893,7 @@ GameObject:
   - component: {fileID: 2050105923}
   - component: {fileID: 2050105925}
   - component: {fileID: 2050105924}
+  - component: {fileID: 2050105926}
   m_Layer: 5
   m_Name: AcclaimedFilmDirectorDavidLynch
   m_TagString: Untagged
@@ -16734,6 +16952,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2050105922}
+--- !u!95 &2050105926
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050105922}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f0ee302c37889a41b556cb20b961c46, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2051660878
 GameObject:
   m_ObjectHideFlags: 0
