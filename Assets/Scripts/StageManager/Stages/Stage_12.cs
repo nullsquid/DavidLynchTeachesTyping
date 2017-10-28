@@ -38,7 +38,7 @@ public class Stage_12 : Stage {
         TextPrinter.instance.InvokePrint("Thank you for letting me teach you how to type. To purchase to full version, go into the nearest bathtub and make smacking noises with your hands until someone can assist you.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
         yield return new WaitForSeconds(1.5f);
-        StageManager.instance.StartStage(1);
+        StageManager.instance.StartStage(0);
     }
 
 

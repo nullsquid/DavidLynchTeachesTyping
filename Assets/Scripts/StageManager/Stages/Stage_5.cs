@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class Stage_5 : Stage {
-
+	public Animator animator;
     public void OnEnable() {
         if (TextPrinter.instance != null)
             TextPrinter.instance.onPrintComplete += EndStage;
@@ -15,12 +15,14 @@ public class Stage_5 : Stage {
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_5").GetComponent<TextMeshProUGUI>();
+		animator.SetBool ("IsTalking", true);
         TextPrinter.instance.InvokePrint("Alright kiddo...using your 'right Index Finger’, push down on the 'j' key.\n\npress 'J' to continue", 0.1f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_5");
 
     }
 
     public override void EndStage() {
+		animator.SetBool ("IsTalking", false);
         stageIsComplete = true;
     }
 

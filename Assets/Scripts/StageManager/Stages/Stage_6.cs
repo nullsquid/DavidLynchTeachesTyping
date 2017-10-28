@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 public class Stage_6 : Stage {
-
+	public Animator animator;
     public void OnEnable() {
         if (TextPrinter.instance != null)
             TextPrinter.instance.onPrintComplete += EndStage;
@@ -21,6 +21,7 @@ public class Stage_6 : Stage {
 
     public override void EndStage() {
         stageIsComplete = true;
+		animator.SetBool ("IsTalking", false);
     }
 
     void Update() {
@@ -33,6 +34,7 @@ public class Stage_6 : Stage {
 
     IEnumerator ShowThumbsUp() {
         yield return new WaitForSeconds(1);
+		animator.SetBool ("IsTalking", true);
         TextPrinter.instance.InvokePrint("Wow! Amazing! Beautiful. We are doing Beautiful work here. That was just great! Let's move on to the next one.\n\npress any key to continue", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_6");
 

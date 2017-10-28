@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Video;
 public class Stage_1 : Stage {
     public Animator animator;
     float talkLength;
@@ -30,11 +31,11 @@ public class Stage_1 : Stage {
         animator.SetBool("IsTalking", false);
 	}
     public Image blackSolid;
+	public GameObject videoPlayer;
     float t = 0;
     Color temp;
 	void Update(){
-        //testing
-        
+		//Debug.Log(temp.a);
         if (stageIsComplete == true && Input.anyKeyDown) {
 			StageManager.instance.StartStage (2);
 		}
@@ -44,14 +45,31 @@ public class Stage_1 : Stage {
             t += Time.deltaTime / 3;
             temp.a = Mathf.Lerp(0, 1, t);
             blackSolid.color = temp;
+
+
         }
-        else if (Input.GetKeyUp(KeyCode.A)) {
+		if (temp.a == 1) {
+			StartCoroutine (StartVideo ());
+		}
+		else if (Input.GetKeyUp(KeyCode.A) && t < 1) {
             //t -= Time.deltaTime / 3;
             t = 0;
             temp.a = 0;
             blackSolid.color = temp;
         }
-        */
+		*/
+        
 	}
+	/*
+	IEnumerator StartVideo() {
+		Camera.main.GetComponent<CameraGlitch>().enabled = true;
+		yield return new WaitForSeconds(2.0f);
+
+		videoPlayer.SetActive(true);
+		float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
+		yield return new WaitForSeconds(length);
+		StageManager.instance.StartStage(12);
+	}
+	*/
     
 }

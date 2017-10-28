@@ -127,6 +127,14 @@ public class StageManager : MonoBehaviour {
                 stages[11].gameObject.SetActive(true);
                 stages[11].StartStage();
                 break;
+		case 12:
+			for (int i = 0; i < stages.Count; i++) {
+				if (stages[i] != null)
+					stages[i].gameObject.SetActive(false);
+			}
+			stages[12].gameObject.SetActive(true);
+			stages[12].StartStage();
+			break;
             default:
 			
 			break;

@@ -6,6 +6,7 @@ using TMPro;
 public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
+	public Animator animator;
     public void OnEnable() {
         if (TextPrinter.instance != null)
             TextPrinter.instance.onPrintComplete += EndStage;
@@ -43,6 +44,8 @@ public class Stage_10 : Stage {
 
     }
     IEnumerator WaitForSpeechBubble() {
+		animator.SetBool ("IsTalking", false);
+		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);
         TextPrinter.instance.InvokePrint("Great work on that typing kiddo! How about you reward yourself with a coffee and a smoke?", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
         yield return new WaitForSeconds(9.5f);
@@ -52,4 +55,8 @@ public class Stage_10 : Stage {
 
 
     }
+
+	void StopAnim(){
+		animator.SetBool ("IsTalking", false);
+	}
 }

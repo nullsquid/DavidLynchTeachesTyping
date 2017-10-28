@@ -11,7 +11,7 @@ public class Stage_9 : Stage {
     public GameObject JPrefab;
     public GameObject FPrefab;
     public GameObject playSpace;
-
+	public Animator animator;
     public List<GameObject> JList = new List<GameObject>();
     public List<GameObject> FList = new List<GameObject>();
     public void OnEnable() {
@@ -135,6 +135,7 @@ public class Stage_9 : Stage {
     }
 
     IEnumerator StartMinigame() {
+		animator.SetBool ("IsTalking", true);
         TextPrinter.instance.InvokePrint("Okay, We are going to assess your typing speed. Are you ready?", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_9");
         yield return new WaitForSeconds(10f);
@@ -144,6 +145,7 @@ public class Stage_9 : Stage {
     }
 
     IEnumerator Minigame() {
+		animator.SetBool ("IsTalking", false);
         FList[0].SetActive(true);
         yield return new WaitForSeconds(Random.Range(.5f, 2f));
         JList[0].SetActive(true);

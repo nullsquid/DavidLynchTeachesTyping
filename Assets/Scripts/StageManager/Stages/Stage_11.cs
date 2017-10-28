@@ -39,16 +39,19 @@ public class Stage_11 : Stage {
             t += Time.deltaTime / 3;
             temp.a = Mathf.Lerp(0, 1, t);
             blackSolid.color = temp;
-            if (t == 1) {
-                StartCoroutine(StartVideo());
-            }
+			if (temp.a == 1) {
+				StartCoroutine(StartVideo());
+			}
+
         }
+
         
-        else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A)) {
+		else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
             //t -= Time.deltaTime / 3;
             t = 0;
             temp.a = 0;
             blackSolid.color = temp;
+
             TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key\n\nHold the 'A' key...", 0.08f);
 
         }
@@ -61,6 +64,9 @@ public class Stage_11 : Stage {
         videoPlayer.SetActive(true);
         float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
         yield return new WaitForSeconds(length);
+		blackSolid.color = new Color (0, 0, 0, 0);
+		videoPlayer.SetActive (false);
+		mainCamera.GetComponent<CameraGlitch> ().enabled = false;
         StageManager.instance.StartStage(12);
     }
 
