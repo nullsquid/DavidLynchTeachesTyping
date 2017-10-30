@@ -37,6 +37,11 @@ public class StageManager : MonoBehaviour {
 	public void StartStage(int stageNumber){
 		switch (stageNumber) {
 		case 0:
+            for (int i = 0; i < stages.Count; i++) {
+				if(stages[i] != null)
+				stages [i].gameObject.SetActive (false);
+			}
+            stages [0].gameObject.SetActive (true);
 			stages [0].StartStage ();
 			break;
 		case 1:

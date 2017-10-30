@@ -30,9 +30,9 @@ public class Stage_10 : Stage {
 
     void Update() {
         if (stageIsComplete == true && Input.anyKeyDown) {
-            TextPrinter.instance.onPrintComplete -= EndStage;
+            
             //play animation?
-            StageManager.instance.StartStage(11);
+            //StageManager.instance.StartStage(11);
         }
     }
     IEnumerator ShowSpeechBubble() {
@@ -51,6 +51,7 @@ public class Stage_10 : Stage {
         yield return new WaitForSeconds(9.5f);
         coffeeAndCigaretteBreak.SetActive(true);
         yield return new WaitForSeconds(2.0f);
+        TextPrinter.instance.onPrintComplete -= EndStage;
         StageManager.instance.StartStage(11);
 
 

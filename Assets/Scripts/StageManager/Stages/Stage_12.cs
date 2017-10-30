@@ -19,7 +19,7 @@ public class Stage_12 : Stage {
         mainCamera.GetComponent<CameraGlitch>().enabled = false;
         TextPrinter.instance.printText = GameObject.Find("MainText_12").GetComponent<TextMeshProUGUI>();
         
-        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
+        //GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
         StartCoroutine(InvokeThankYou());
     }
 
@@ -34,10 +34,10 @@ public class Stage_12 : Stage {
 
     IEnumerator InvokeThankYou() {
         TextPrinter.instance.InvokePrint("Trial Version Over, Thank you for typing.", 0.08f);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(10f);
         TextPrinter.instance.InvokePrint("Thank you for letting me teach you how to type. To purchase to full version, go into the nearest bathtub and make smacking noises with your hands until someone can assist you.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(17.5f);
         StageManager.instance.StartStage(0);
     }
 
