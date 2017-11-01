@@ -21,6 +21,7 @@ public class Stage_4 : Stage {
 
     public override void EndStage(){
 		stageIsComplete = true;
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press 'F' to continue</color>";
 		animator.SetBool ("IsTalking", false);
 	}
 
@@ -35,7 +36,7 @@ public class Stage_4 : Stage {
 	IEnumerator ShowThumbsUp(){
 		yield return new WaitForSeconds (1);
 		animator.SetBool ("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Wow! Excellent! Well Done! Let's move on to the next key.\n\npress 'F' continue", 0.08f);
+		TextPrinter.instance.InvokePrint ("Wow! Excellent! Well Done! Let's move on to the next key.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_4");
 
     }

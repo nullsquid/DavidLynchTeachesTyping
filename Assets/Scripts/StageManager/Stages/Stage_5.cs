@@ -16,13 +16,15 @@ public class Stage_5 : Stage {
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_5").GetComponent<TextMeshProUGUI>();
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Alright kiddo...using your 'right Index Finger’, push down on the 'j' key.\n\npress 'J' to continue", 0.1f);
+        TextPrinter.instance.InvokePrint("Alright kiddo...using your 'right Index Finger’, push down on the 'j' key.", 0.1f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_5");
 
     }
 
     public override void EndStage() {
 		animator.SetBool ("IsTalking", false);
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press 'J' continue</color>";
+
         stageIsComplete = true;
     }
 

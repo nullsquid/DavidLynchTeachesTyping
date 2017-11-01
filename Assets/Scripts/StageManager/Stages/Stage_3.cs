@@ -23,6 +23,7 @@ public class Stage_3 : Stage {
 
     public override void EndStage(){
 		animator.SetBool ("IsTalking", false);
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press 'F' to continue</color>";
 		stageIsComplete = true;
 	}
 

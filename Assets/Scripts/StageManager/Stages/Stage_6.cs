@@ -21,6 +21,7 @@ public class Stage_6 : Stage {
 
     public override void EndStage() {
         stageIsComplete = true;
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
 		animator.SetBool ("IsTalking", false);
     }
 
@@ -35,7 +36,7 @@ public class Stage_6 : Stage {
     IEnumerator ShowThumbsUp() {
         yield return new WaitForSeconds(1);
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Wow! Amazing! Beautiful. We are doing Beautiful work here. That was just great! Let's move on to the next one.\n\npress any key to continue", 0.08f);
+        TextPrinter.instance.InvokePrint("Wow! Amazing! Beautiful. We are doing Beautiful work here. That was just great! Let's move on to the next one.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_6");
 
     }

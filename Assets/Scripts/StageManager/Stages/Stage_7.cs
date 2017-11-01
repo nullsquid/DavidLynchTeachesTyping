@@ -34,7 +34,7 @@ public class Stage_7 : Stage {
     IEnumerator InvokeBugText() {
 		animator.SetBool ("IsTalking", true);
 		Invoke ("StopDialogueAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7A"].length);
-        TextPrinter.instance.InvokePrint("Now, place your left ring finger inside the undulating bug next to your keyboard.\n\npress bug to continue", 0.08f);
+        TextPrinter.instance.InvokePrint("Now, place your left ring finger inside the undulating bug next to your keyboard.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_7A");
         yield return new WaitForSeconds(13f);
 		animator.SetBool ("IsTalking", true);
@@ -46,6 +46,7 @@ public class Stage_7 : Stage {
 
     }
 	void StopDialogueAnim(){
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
 		animator.SetBool ("IsTalking", false);
 	}
 }

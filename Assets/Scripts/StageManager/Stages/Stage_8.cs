@@ -31,6 +31,8 @@ public class Stage_8 : Stage {
     void Update() {
         if (stageIsComplete == true && Input.anyKeyDown) {
             TextPrinter.instance.onPrintComplete -= EndStage;
+			TextPrinter.instance.InvokePrint("\n\nPlace your left ring finger inside the undulating bug next to your keyboard.", 0.08f);
+
             //play animation?
             StageManager.instance.StartStage(9);
         }
@@ -42,7 +44,7 @@ public class Stage_8 : Stage {
         yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraGlitch>().enabled = false;
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("It appears there has been a glitch in the software... We will have to move on\n\npress any key to continue", 0.08f);
+        TextPrinter.instance.InvokePrint("It appears there has been a glitch in the software... We will have to move on", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_8");
 
     }
