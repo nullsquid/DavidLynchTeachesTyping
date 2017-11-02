@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Stage_0 : Stage {
     public bool hasBeenCompleted = false;
-	public void Start(){
+	public void OnEnable(){
+		if(TextPrinter.instance != null)
 		TextPrinter.instance.onPrintComplete += EndStage;
 	}
 
