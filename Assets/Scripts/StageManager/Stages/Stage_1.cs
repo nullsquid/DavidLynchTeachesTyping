@@ -17,8 +17,8 @@ public class Stage_1 : Stage {
 
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_1").GetComponent<TextMeshProUGUI>();
-        animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint ("Hello, this is film maker David Lynch....I'm going to be taking you through the magical\nworld of typing. By the time you've finished this computer program.... you'll be a typing wizard. Let's get started.", 0.08f);
+        //animator.SetBool("IsTalking", true);
+        TextPrinter.instance.InvokePrint ("Hello, this is film maker David Lynch....I'm going to be taking you through the magical\nworld of typing. By the time you've finished this computer program.... you'll be a typing wizard.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_1");
 
         
@@ -39,7 +39,8 @@ public class Stage_1 : Stage {
 	void Update(){
 		//Debug.Log(temp.a);
         if (stageIsComplete == true && Input.anyKeyDown) {
-			StageManager.instance.StartStage (2);
+            GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("ROCK");
+            StartCoroutine(WaitForRock());
 		}
         //test code for the fade out
         /*
@@ -73,5 +74,10 @@ public class Stage_1 : Stage {
 		StageManager.instance.StartStage(12);
 	}
 	*/
+    IEnumerator WaitForRock() {
+        stageIsComplete = false;
+        yield return new WaitForSeconds(1.8f);
+        StageManager.instance.StartStage(2);
+    }
     
 }

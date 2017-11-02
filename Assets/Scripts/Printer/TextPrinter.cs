@@ -49,7 +49,12 @@ public class TextPrinter : MonoBehaviour {
 
 		for (int i = 0; i < textToPrint.Length; i++) {
 			printText.text += textToPrint [i];
-			yield return new WaitForSeconds (timeBtwChars);
+            if (textToPrint[i] == '.' || textToPrint[i] == ',' || textToPrint[i] == '!') {
+                yield return new WaitForSeconds(0.085f);
+            }
+            else
+                yield return new WaitForSeconds(timeBtwChars);
+            
 		}
 		if (onPrintComplete != null) {
 			Debug.Log ("print complete");

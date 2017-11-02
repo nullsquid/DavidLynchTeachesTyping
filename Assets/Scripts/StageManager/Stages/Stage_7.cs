@@ -46,7 +46,7 @@ public class Stage_7 : Stage {
 
     }
 	void StopDialogueAnim(){
-		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>press bug to continue</color>";
 		animator.SetBool ("IsTalking", false);
 	}
 }

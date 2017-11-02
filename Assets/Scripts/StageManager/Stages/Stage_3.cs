@@ -30,8 +30,9 @@ public class Stage_3 : Stage {
 	void Update(){
 		if (stageIsComplete == true && Input.GetKeyDown(KeyCode.F)) {
 			TextPrinter.instance.onPrintComplete -= EndStage;
-			//play animation?
-			StageManager.instance.StartStage(4);
+            GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_GOOD_1");
+            //play animation?
+            StageManager.instance.StartStage(4);
 		}
 	}
 }
