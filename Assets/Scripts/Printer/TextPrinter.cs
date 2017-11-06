@@ -11,6 +11,7 @@ public class TextPrinter : MonoBehaviour {
 	public delegate void PrintComplete();
 	public event PrintComplete onPrintComplete;
 
+	bool isProcessingTag;
 	#region Singleton
 	public static TextPrinter instance;
 	void Awake() {
@@ -33,6 +34,7 @@ public class TextPrinter : MonoBehaviour {
 	IEnumerator PrintStartText(float timeBtwChars){
 		
 		for (int i = 0; i < textToPrint.Length; i++) {
+			
 			startText.text += textToPrint [i];
 			yield return new WaitForSeconds (timeBtwChars);
 		}
@@ -48,12 +50,39 @@ public class TextPrinter : MonoBehaviour {
 	IEnumerator PrintText(float timeBtwChars){
 
 		for (int i = 0; i < textToPrint.Length; i++) {
-			printText.text += textToPrint [i];
-            if (textToPrint[i] == '.' || textToPrint[i] == ',' || textToPrint[i] == '!') {
-                yield return new WaitForSeconds(0.085f);
-            }
-            else
-                yield return new WaitForSeconds(timeBtwChars);
+			
+			if (textToPrint [i] == '.' || textToPrint [i] == ',' || textToPrint [i] == '!') {
+				if (textToPrint [i] != '<' || textToPrint [i] != '>') {
+					printText.text += textToPrint [i];
+					yield return new WaitForSeconds (0.085f);
+				}
+			} else if (textToPrint [i] == '<') {
+				
+
+				string waitTime = "";
+				isProcessingTag = true;
+				for (int j = i; j < textToPrint.Length; j++) {
+					if (textToPrint [j] != '<' || textToPrint [j] != '>') {
+						waitTime += textToPrint [j];
+					}
+					if (textToPrint [j] == '>') {
+						isProcessingTag = false;
+						break;
+					}
+				}
+				i += waitTime.Length;
+				//Debug.Log (waitTime);
+				yield return new WaitForSeconds (float.Parse (waitTime.Replace("<",string.Empty).Replace(">", string.Empty)));
+
+
+			} else {
+				if (isProcessingTag == false) {
+					//if (textToPrint [i] != '<' || textToPrint [i] != '>') {
+						printText.text += textToPrint [i];
+						yield return new WaitForSeconds (timeBtwChars);
+					//}
+				}
+			}
             
 		}
 		if (onPrintComplete != null) {
