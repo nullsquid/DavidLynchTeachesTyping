@@ -63,53 +63,52 @@ public class TextPrinter : MonoBehaviour {
 				string wordToPrint = "";
 				string tag = "";
 				for (int j = i; j < textToPrint.Length; j++) {
-					tag += textToPrint [j];
-					if (textToPrint [j] != ',') {
-						wordToPrint += textToPrint [j];
-					} else if (textToPrint [j] == ',') {
-						wordToPrint.Remove (0, 1);
-						for (int t = j; t < textToPrint.Length; t++) {
-							waitTime += textToPrint [t];
+                    tag += textToPrint[j];
+                    //if(textToPrint[j] != ',') {
+                    wordToPrint += textToPrint[j];
+                    //}
+                    if(textToPrint[j] == ';') {
+                        for(int t = j + 1; t < textToPrint.Length; t++) {
+                            waitTime += textToPrint[t];
+                            if(textToPrint[t] == '>') {
+                                break;
+                            }
+                        }
+                        
+                    }
+                    if(textToPrint[j] == '>') {
+                        wordToPrint = wordToPrint.Replace(waitTime, string.Empty).Replace("<", string.Empty).Replace(";", string.Empty).Replace(">", string.Empty);
+                        break;
+                    }
 
-						}
-					}
-					if (textToPrint [i] == '>') {
-						isProcessingTag = false;
-						break;
-					}
-					 
-				}
 
+                }
+                
 				i += tag.Length - 1;
-				Debug.Log (waitTime);
-				for (int k = 0; k < wordToPrint.Length; k++) {
-					printText.text += wordToPrint [k];
-					yield return new WaitForSeconds (float.Parse (waitTime.Replace (">", string.Empty).Replace(",", string.Empty)));
+                Debug.Log(wordToPrint +"<<");
+				Debug.Log (waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
+                
+				for (int p = 0; p < wordToPrint.Length; p++) {
+                    Debug.Log("running?!");
+					printText.text += wordToPrint [p];
+					yield return new WaitForSeconds (float.Parse (waitTime.Replace (">", string.Empty).Replace(";", string.Empty)));
 				}
-				/*
-				string waitTime = "";
-				isProcessingTag = true;
-				for (int j = i; j < textToPrint.Length; j++) {
-					if (textToPrint [j] != '<' || textToPrint [j] != '>') {
-						waitTime += textToPrint [j];
-					}
-					if (textToPrint [j] == '>') {
-						isProcessingTag = false;
-						break;
-					}
-				}
-				i += waitTime.Length - 1;
-				//Debug.Log (waitTime);
-				yield return new WaitForSeconds (float.Parse (waitTime.Replace("<",string.Empty).Replace(">", string.Empty)));
-
-				*/
-			} else {
+                
+                //StartCoroutine(PrintTaggedWords(wordToPrint, float.Parse(waitTime.Replace(">", string.Empty).Replace(";", string.Empty))));
+                isProcessingTag = false;
+				
+			}
+            
+            else {
 				if (isProcessingTag == false) {
 					//if (textToPrint [i] != '<' || textToPrint [i] != '>') {
 						printText.text += textToPrint [i];
 						yield return new WaitForSeconds (timeBtwChars);
 					//}
 				}
+                else if(isProcessingTag == true) {
+                    yield return null;
+                }
 			}
             
 		}
@@ -118,7 +117,14 @@ public class TextPrinter : MonoBehaviour {
 			onPrintComplete ();
 		}
 	}
-
+    IEnumerator PrintTaggedWords(string word, float time) {
+        Debug.Log("rrrr");
+        for(int i = 0; i < word.Length; i++) {
+            printText.text += word[i];
+            yield return new WaitForSeconds(time);
+        }
+        isProcessingTag = false;
+    }
 	public void ClearText(){
 		printText.text = "";
 	}
