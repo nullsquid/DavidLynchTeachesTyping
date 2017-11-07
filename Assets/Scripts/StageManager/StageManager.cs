@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour {
 	public List<Stage> stages = new List<Stage> ();
+    public bool testingMode;
+    public int stageNumber;
 	#region Singleton
 	public static StageManager instance;
 	void Awake() {
@@ -19,16 +21,32 @@ public class StageManager : MonoBehaviour {
 	#endregion
 
 	void Start(){
-		for (int i = 0; i < stages.Count; i++) {
-			if (i == 0) {
-				//if(stages[i] != null)
-				stages [i].gameObject.SetActive (true);
-				StartStage (0);
-			} else {
-				if(stages[i] != null)
-				stages [i].gameObject.SetActive (false);
-			}
-		}
+        if (testingMode == true) {
+            for (int i = 0; i < stages.Count; i++) {
+                if (i == stageNumber) {
+                    //if(stages[i] != null)
+                    stages[i].gameObject.SetActive(true);
+                    StartStage(stageNumber);
+                }
+                else {
+                    if (stages[i] != null)
+                        stages[i].gameObject.SetActive(false);
+                }
+            }
+        }
+        else {
+            for (int i = 0; i < stages.Count; i++) {
+                if (i == 0) {
+                    //if(stages[i] != null)
+                    stages[i].gameObject.SetActive(true);
+                    StartStage(0);
+                }
+                else {
+                    if (stages[i] != null)
+                        stages[i].gameObject.SetActive(false);
+                }
+            }
+        }
 
 	}
 

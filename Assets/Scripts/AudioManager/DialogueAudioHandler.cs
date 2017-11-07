@@ -9,7 +9,7 @@ public class DialogueAudioHandler : MonoBehaviour {
 	public Dictionary<string, AudioClip> soundEffects = new Dictionary<string, AudioClip> ();
     public GameObject channelPanel;
     // Use this for initialization
-	void Start () {
+	void Awake () {
 		for (int i = 0; i < soundEffectRaw.Count; i++) {
 			soundEffects.Add (soundEffectRaw [i].name, soundEffectRaw [i]);
 		}
