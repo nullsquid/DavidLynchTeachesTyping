@@ -73,17 +73,19 @@ public class TextPrinter : MonoBehaviour {
 
 						}
 					}
-					if (textToPrint [j] == '>') {
+					if (textToPrint [i] == '>') {
+						isProcessingTag = false;
 						break;
-					} 
+					}
+					 
 				}
+
 				i += tag.Length - 1;
 				Debug.Log (waitTime);
 				for (int k = 0; k < wordToPrint.Length; k++) {
 					printText.text += wordToPrint [k];
 					yield return new WaitForSeconds (float.Parse (waitTime.Replace (">", string.Empty).Replace(",", string.Empty)));
 				}
-				isProcessingTag = false;
 				/*
 				string waitTime = "";
 				isProcessingTag = true;
