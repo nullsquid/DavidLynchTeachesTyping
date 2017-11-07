@@ -57,8 +57,34 @@ public class TextPrinter : MonoBehaviour {
 					yield return new WaitForSeconds (0.085f);
 				}
 			} else if (textToPrint [i] == '<') {
-				
 
+				isProcessingTag = true;
+				string waitTime = "";
+				string wordToPrint = "";
+				string tag = "";
+				for (int j = i; j < textToPrint.Length; j++) {
+					tag += textToPrint [j];
+					if (textToPrint [j] != ',') {
+						wordToPrint += textToPrint [j];
+					} else if (textToPrint [j] == ',') {
+						wordToPrint.Remove (0, 1);
+						for (int t = j; t < textToPrint.Length; t++) {
+							waitTime += textToPrint [t];
+
+						}
+					}
+					if (textToPrint [j] == '>') {
+						break;
+					} 
+				}
+				i += tag.Length - 1;
+				Debug.Log (waitTime);
+				for (int k = 0; k < wordToPrint.Length; k++) {
+					printText.text += wordToPrint [k];
+					yield return new WaitForSeconds (float.Parse (waitTime.Replace (">", string.Empty).Replace(",", string.Empty)));
+				}
+				isProcessingTag = false;
+				/*
 				string waitTime = "";
 				isProcessingTag = true;
 				for (int j = i; j < textToPrint.Length; j++) {
@@ -70,11 +96,11 @@ public class TextPrinter : MonoBehaviour {
 						break;
 					}
 				}
-				i += waitTime.Length;
+				i += waitTime.Length - 1;
 				//Debug.Log (waitTime);
 				yield return new WaitForSeconds (float.Parse (waitTime.Replace("<",string.Empty).Replace(">", string.Empty)));
 
-
+				*/
 			} else {
 				if (isProcessingTag == false) {
 					//if (textToPrint [i] != '<' || textToPrint [i] != '>') {

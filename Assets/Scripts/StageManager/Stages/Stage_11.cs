@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Video;
 using UnityEngine.UI;
+
 public class Stage_11 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
@@ -27,7 +28,7 @@ public class Stage_11 : Stage {
     }
 
     public override void EndStage() {
-		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
+		TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
         stageIsComplete = true;
 
     }
@@ -35,11 +36,13 @@ public class Stage_11 : Stage {
     void Update() {
         if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
+			mainCamera.GetComponent<postVHSPro>().enabled = true;
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
             t += Time.deltaTime / 3;
             temp.a = Mathf.Lerp(0, 1, t);
             blackSolid.color = temp;
+			//mainCamera.GetComponent<postVHSPro>().signalNoiseAmount = temp;
 			if (temp.a == 1) {
 				StartCoroutine(StartVideo());
 			}
