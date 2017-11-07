@@ -39,7 +39,7 @@ public class Stage_7 : Stage {
         yield return new WaitForSeconds(13f);
 		animator.SetBool ("IsTalking", true);
 		Invoke ("StopDialogueAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7B"].length);
-        TextPrinter.instance.InvokePrint("\n\nPlace your left ring finger inside the undulating bug next to your keyboard.", 0.08f);
+        TextPrinter.instance.InvokePrint("\n\nPlace your left ring finger inside the undulating bug", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_7B");
         yield return new WaitForSeconds(9f);
         StageManager.instance.StartStage(8);
