@@ -31,4 +31,8 @@ public class Stage_0 : Stage {
 			StageManager.instance.StartStage (1);
 		}
 	}
+
+    /*IEnumerator StartGame() {
+        
+    }*/
 }
