@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Stage_0 : Stage {
     public bool hasBeenCompleted = false;
+	public GameObject background;
+	public GameObject lynch;
+	public GameObject startText;
+	public GameObject title;
+	public float unloadWaitTime;
 	public void OnEnable(){
 		if(TextPrinter.instance != null)
 		TextPrinter.instance.onPrintComplete += EndStage;
@@ -28,10 +33,25 @@ public class Stage_0 : Stage {
 
 	void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
-			StageManager.instance.StartStage (1);
+			//StageManager.instance.StartStage (1);
+			StartCoroutine(StartFakeLoadIn());
 		}
 	}
 
+	IEnumerator StartFakeLoadIn(){
+		FindObjectOfType<BackgroundScrollController> ().speed = 0;
+		yield return new WaitForSeconds (unloadWaitTime);
+		background.SetActive (false);
+		yield return new WaitForSeconds (unloadWaitTime);
+		startText.SetActive (false);
+		yield return new WaitForSeconds (unloadWaitTime);
+		lynch.SetActive (false);
+		yield return new WaitForSeconds (unloadWaitTime);
+		title.SetActive (false);
+		yield return new WaitForSeconds (unloadWaitTime);
+		StageManager.instance.StartStage (1);
+
+	}
     /*IEnumerator StartGame() {
         
     }*/
