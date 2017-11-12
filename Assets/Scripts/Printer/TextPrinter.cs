@@ -85,8 +85,8 @@ public class TextPrinter : MonoBehaviour {
                 }
                 
 				i += tag.Length - 1;
-                Debug.Log(wordToPrint +"<<");
-				Debug.Log (waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
+                //Debug.Log(wordToPrint +"<<");
+				//Debug.Log (waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
                 
 				for (int p = 0; p < wordToPrint.Length; p++) {
                     Debug.Log("running?!");

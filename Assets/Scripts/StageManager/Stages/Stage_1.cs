@@ -10,6 +10,7 @@ public class Stage_1 : Stage {
 	public float loadInTime = 0.3f;
 	public GameObject lynch;
 	public GameObject textBox;
+    public GameObject blackBox;
 	public void Start(){
 		TextPrinter.instance.onPrintComplete += EndStage;
 	}
@@ -22,6 +23,7 @@ public class Stage_1 : Stage {
 		TextPrinter.instance.printText = GameObject.Find ("MainText_1").GetComponent<TextMeshProUGUI>();
 		lynch.SetActive (false);
 		textBox.SetActive (false);
+        blackBox.SetActive(true);
         animator.SetBool("IsTalking", true);
 		StartCoroutine(FakeLoadIn());
 
@@ -99,6 +101,8 @@ public class Stage_1 : Stage {
     }
 
 	IEnumerator FakeLoadIn(){
+        yield return new WaitForSeconds(loadInTime);
+        blackBox.SetActive(false);
 		yield return new WaitForSeconds (loadInTime);
 		lynch.SetActive (true);
 		yield return new WaitForSeconds(loadInTime);
