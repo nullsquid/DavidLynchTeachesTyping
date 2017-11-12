@@ -51,12 +51,14 @@ public class Stage_11 : Stage {
 
         
 		else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
+			mainCamera.GetComponent<postVHSPro> ().enabled = false;
             //t -= Time.deltaTime / 3;
             t = 0;
             temp.a = 0;
             blackSolid.color = temp;
 
-            TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key\n\nHold the 'A' key...", 0.08f);
+            TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key", 0.08f);
+
 
         }
 
