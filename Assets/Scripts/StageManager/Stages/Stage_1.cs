@@ -90,6 +90,7 @@ public class Stage_1 : Stage {
 		TextPrinter.instance.printText.text += " rock";
 	}
 	void AnimatorPause(){
+		
 		animator.SetBool("IsTalking", false);
 	}
 
@@ -127,7 +128,7 @@ public class Stage_1 : Stage {
 		textBox.SetActive(true);
 		yield return new WaitForSeconds(loadInTime);
 		animator.SetBool("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Hello,\nthis is film maker David Lynch{1}....<.;0.3>I'm going <to;0.01> be taking you< ;0.1> through the magical\nworld of typing.< ;0.15> By the time you've finished this computer program.... you'll be a typing wizard!", 0.08f);
+		TextPrinter.instance.InvokePrint ("Hello,\nthis is film maker David Lynch{1}....<.;0.3>I'm going <to;0.01> be taking you< ;0.1> through the magical\nworld of typing.{1}< ;0.15> By the time you've finished this computer program.... you'll be a typing wizard!", 0.08f);
 		GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_1");
 
 	}
