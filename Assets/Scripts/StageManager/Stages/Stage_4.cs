@@ -4,16 +4,21 @@ using UnityEngine;
 using TMPro;
 public class Stage_4 : Stage {
 	public Animator animator;
-	public void OnEnable(){
-		if(TextPrinter.instance != null)
-			TextPrinter.instance.onPrintComplete += EndStage;
-	}
+    public void OnEnable() {
+        if (TextPrinter.instance != null) {
+            TextPrinter.instance.onPrintComplete += EndStage;
+            TextPrinter.instance.onAnimPause += AnimatorPause;
+            TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+        }
+    }
 
-	public void OnDisable(){
-		TextPrinter.instance.onPrintComplete -= EndStage;
-	}
+    public void OnDisable() {
+        TextPrinter.instance.onPrintComplete -= EndStage;
+        TextPrinter.instance.onAnimPause -= AnimatorPause;
+        TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+    }
 
-	public override void StartStage(){
+    public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_4").GetComponent<TextMeshProUGUI>();
 		StartCoroutine (ShowThumbsUp ());
 
@@ -32,11 +37,19 @@ public class Stage_4 : Stage {
 			StageManager.instance.StartStage(5);
 		}
 	}
+    void AnimatorPause() {
 
-	IEnumerator ShowThumbsUp(){
+        animator.SetBool("IsTalking", false);
+    }
+
+    void AnimatorUnpause() {
+        animator.SetBool("IsTalking", true);
+    }
+
+    IEnumerator ShowThumbsUp(){
 		yield return new WaitForSeconds (1);
 		animator.SetBool ("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Wow! Excellent! Well Done! Let's move on to the next key.", 0.08f);
+		TextPrinter.instance.InvokePrint ("Wow! {.5}Excellent!{.5} Well Done!{.5} Let's move on to the next key.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_4");
 
     }

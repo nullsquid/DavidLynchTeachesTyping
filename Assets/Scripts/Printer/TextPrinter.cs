@@ -67,15 +67,17 @@ public class TextPrinter : MonoBehaviour {
 				string waitTime = "";
 				isProcessingTag = true;
 				for (int j = i + 1; j < textToPrint.Length; j++) {
-					
-					if (textToPrint [j] == '}') {
-						break;
+                    waitTime += textToPrint[j];
+                    if (textToPrint [j] == '}') {
+                        textToPrint = textToPrint.Remove(j-1, 2);
+                        waitTime = waitTime.Replace("}", string.Empty);
+                        break;
 					} else {
-						waitTime += textToPrint [j];
+						
 					}
 				}
-				textToPrint = textToPrint.Replace (waitTime + "}", string.Empty);
-				StartCoroutine (PauseAnim (float.Parse(waitTime)));
+                
+                StartCoroutine (PauseAnim (float.Parse(waitTime)));
 				isProcessingTag = false;
 			}
 			else if (textToPrint [i] == '<') {

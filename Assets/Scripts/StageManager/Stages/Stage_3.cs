@@ -4,16 +4,20 @@ using UnityEngine;
 using TMPro;
 public class Stage_3 : Stage {
 	public Animator animator;
-	public void OnEnable(){
-		if(TextPrinter.instance != null)
-		TextPrinter.instance.onPrintComplete += EndStage;
-	}
+    public void OnEnable() {
+        if (TextPrinter.instance != null)
+            TextPrinter.instance.onPrintComplete += EndStage;
+        TextPrinter.instance.onAnimPause += AnimatorPause;
+        TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+    }
 
-	public void OnDisable(){
-		TextPrinter.instance.onPrintComplete -= EndStage;
-	}
+    public void OnDisable() {
+        TextPrinter.instance.onPrintComplete -= EndStage;
+        TextPrinter.instance.onAnimPause -= AnimatorPause;
+        TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+    }
 
-	public override void StartStage(){
+    public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_3").GetComponent<TextMeshProUGUI>();
 		animator.SetBool ("IsTalking", true);
 		TextPrinter.instance.InvokePrint ("Now... Using your left index finger, push down on the F Key", 0.08f);
@@ -26,8 +30,15 @@ public class Stage_3 : Stage {
 		TextPrinter.instance.printText.text += "\n\n<color=yellow>press 'F' to continue</color>";
 		stageIsComplete = true;
 	}
+    void AnimatorPause() {
 
-	void Update(){
+        animator.SetBool("IsTalking", false);
+    }
+
+    void AnimatorUnpause() {
+        animator.SetBool("IsTalking", true);
+    }
+    void Update(){
 		if (stageIsComplete == true && Input.GetKeyDown(KeyCode.F)) {
 			TextPrinter.instance.onPrintComplete -= EndStage;
             GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_GOOD_1");
