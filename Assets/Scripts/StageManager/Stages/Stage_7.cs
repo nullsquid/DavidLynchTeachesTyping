@@ -4,14 +4,19 @@ using UnityEngine;
 using TMPro;
 public class Stage_7 : Stage {
 	public Animator animator;
-    public void OnEnable() {
-        if (TextPrinter.instance != null)
-            TextPrinter.instance.onPrintComplete += EndStage;
-    }
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_7").GetComponent<TextMeshProUGUI>();
@@ -45,6 +50,16 @@ public class Stage_7 : Stage {
         StageManager.instance.StartStage(8);
 
     }
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
+
 	void StopDialogueAnim(){
 		TextPrinter.instance.printText.text += "\n\n<color=yellow>press bug to continue</color>";
 		animator.SetBool ("IsTalking", false);

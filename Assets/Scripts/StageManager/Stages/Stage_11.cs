@@ -10,15 +10,22 @@ public class Stage_11 : Stage {
     public Camera mainCamera;
     public Image blackSolid;
     float t = 0;
+	public Animator animator;
+
     Color temp;
-    public void OnEnable() {
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-        TextPrinter.instance.onPrintComplete += EndStage;
-    }
-
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
@@ -63,6 +70,15 @@ public class Stage_11 : Stage {
         }
 
     }
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
 
     IEnumerator StartVideo() {
         mainCamera.GetComponent<CameraGlitch>().enabled = true;

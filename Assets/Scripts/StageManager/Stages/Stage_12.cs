@@ -6,13 +6,20 @@ using UnityEngine.Video;
 public class Stage_12 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
-    public void OnEnable() {
-        TextPrinter.instance.onPrintComplete += EndStage;
-    }
+	public Animator animator;
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         videoPlayer.SetActive(false);
@@ -31,6 +38,15 @@ public class Stage_12 : Stage {
     void Update() {
         
     }
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
 
     IEnumerator InvokeThankYou() {
         TextPrinter.instance.InvokePrint("Trial Version Over, Thank you for typing.", 0.08f);
