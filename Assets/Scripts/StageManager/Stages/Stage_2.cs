@@ -5,13 +5,18 @@ using TMPro;
 public class Stage_2 : Stage {
 	public Animator animator;
 	public void OnEnable(){
-		if(TextPrinter.instance != null)
-		TextPrinter.instance.onPrintComplete += EndStage;
+        if (TextPrinter.instance != null) {
+            TextPrinter.instance.onPrintComplete += EndStage;
+            TextPrinter.instance.onAnimPause += AnimatorPause;
+            TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+        }
 	}
 
 	public void OnDisable(){
 		TextPrinter.instance.onPrintComplete -= EndStage;
-	}
+        TextPrinter.instance.onAnimPause -= AnimatorPause;
+        TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+    }
 
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_2").GetComponent<TextMeshProUGUI>();
@@ -28,7 +33,16 @@ public class Stage_2 : Stage {
 
 	}
 
-	void Update(){
+    void AnimatorPause() {
+
+        animator.SetBool("IsTalking", false);
+    }
+
+    void AnimatorUnpause() {
+        animator.SetBool("IsTalking", true);
+    }
+
+    void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
 			//StageManager.instance.StartStage (2);
 			TextPrinter.instance.onPrintComplete -= EndStage;

@@ -7,14 +7,19 @@ public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
 	public Animator animator;
-    public void OnEnable() {
-        if (TextPrinter.instance != null)
-            TextPrinter.instance.onPrintComplete += EndStage;
-    }
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         speechBubble.SetActive(false);
@@ -43,6 +48,14 @@ public class Stage_10 : Stage {
         StartCoroutine(WaitForSpeechBubble());
 
     }
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
     IEnumerator WaitForSpeechBubble() {
 		animator.SetBool ("IsTalking", false);
 		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);

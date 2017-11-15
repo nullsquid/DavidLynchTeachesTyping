@@ -4,14 +4,19 @@ using UnityEngine;
 using TMPro;
 public class Stage_6 : Stage {
 	public Animator animator;
-    public void OnEnable() {
-        if (TextPrinter.instance != null)
-            TextPrinter.instance.onPrintComplete += EndStage;
-    }
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_6").GetComponent<TextMeshProUGUI>();
@@ -32,6 +37,15 @@ public class Stage_6 : Stage {
             StageManager.instance.StartStage(7);
         }
     }
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
 
     IEnumerator ShowThumbsUp() {
         yield return new WaitForSeconds(1);

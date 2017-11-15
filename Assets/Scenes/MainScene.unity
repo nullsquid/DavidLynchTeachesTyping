@@ -291,7 +291,7 @@ RectTransform:
   m_Children:
   - {fileID: 654272036}
   m_Father: {fileID: 1156082814}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2151,7 +2151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &249112663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2787,6 +2787,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 1331060598}
   mainCamera: {fileID: 427914958}
   blackSolid: {fileID: 1001564951}
+  animator: {fileID: 2050105926}
 --- !u!114 &312451019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,11 +2951,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3241,7 +3242,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7134,6 +7135,7 @@ MonoBehaviour:
   mirrorMode: 0
   videoPlayer: {fileID: 1331060598}
   mainCamera: {fileID: 427914958}
+  animator: {fileID: 868198656}
 --- !u!114 &836122339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7252,7 +7254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &850239006
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7937,7 +7939,7 @@ MonoBehaviour:
   - {fileID: 312451018}
   - {fileID: 836122338}
   testingMode: 0
-  stageNumber: 1
+  stageNumber: 12
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -9486,7 +9488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.14117432, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0.14117432, y: 0}
   m_SizeDelta: {x: -22, y: -136.82733}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1085839431
@@ -9584,11 +9586,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10351,8 +10353,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1840586791}
   - {fileID: 58603969}
+  - {fileID: 1840586791}
   m_Father: {fileID: 65087613}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10373,7 +10375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.63235295, b: 0.9898581, a: 0.797}
+  m_Color: {r: 0.2509804, g: 0.24705882, b: 0.23921569, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -13295,11 +13297,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13376,7 +13378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1573306418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14234,7 +14236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.38110662, y: 0}
   m_AnchorMax: {x: 0.6454721, y: 0.31362954}
-  m_AnchoredPosition: {x: -7.43412, y: -54.715057}
+  m_AnchoredPosition: {x: -7.43412, y: -54.715088}
   m_SizeDelta: {x: 27, y: 77}
   m_Pivot: {x: 0.61725336, y: 0.199488}
 --- !u!114 &1712697290
@@ -15252,7 +15254,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885772927}
   m_HandleRect: {fileID: 885772926}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -15476,6 +15478,7 @@ MonoBehaviour:
   lynch: {fileID: 818089150}
   textBox: {fileID: 1997224657}
   blackBox: {fileID: 1573306417}
+  scrollbar: {fileID: 1810848202}
   blackSolid: {fileID: 1001564951}
   videoPlayer: {fileID: 1331060598}
 --- !u!1 &1840586790
@@ -15507,12 +15510,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1156082814}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.059143066, y: 0}
-  m_SizeDelta: {x: -22, y: -131.74399}
+  m_AnchoredPosition: {x: 0.07208252, y: 0}
+  m_SizeDelta: {x: -58, y: 0}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1840586792
 MonoBehaviour:
@@ -15609,11 +15612,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -17194,7 +17197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.63235295, b: 0.9898581, a: 0.797}
+  m_Color: {r: 0.2509804, g: 0.24705882, b: 0.23921569, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -18487,14 +18490,14 @@ MonoBehaviour:
     spaceCount: 3
     wordCount: 4
     linkCount: 0
-    lineCount: 4
+    lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

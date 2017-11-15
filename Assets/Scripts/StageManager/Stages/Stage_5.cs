@@ -5,12 +5,17 @@ using TMPro;
 public class Stage_5 : Stage {
 	public Animator animator;
     public void OnEnable() {
-        if (TextPrinter.instance != null)
+        if (TextPrinter.instance != null) {
             TextPrinter.instance.onPrintComplete += EndStage;
+            TextPrinter.instance.onAnimPause += AnimatorPause;
+            TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+        }
     }
 
     public void OnDisable() {
         TextPrinter.instance.onPrintComplete -= EndStage;
+        TextPrinter.instance.onAnimPause -= AnimatorPause;
+        TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
     }
 
     public override void StartStage() {
@@ -28,6 +33,14 @@ public class Stage_5 : Stage {
         stageIsComplete = true;
     }
 
+    void AnimatorPause() {
+
+        animator.SetBool("IsTalking", false);
+    }
+
+    void AnimatorUnpause() {
+        animator.SetBool("IsTalking", true);
+    }
     void Update() {
         if (stageIsComplete == true && Input.GetKeyDown(KeyCode.J)) {
             GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_GOOD_1");

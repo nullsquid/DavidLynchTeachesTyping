@@ -7,8 +7,11 @@ public class TextPrinter : MonoBehaviour {
 	public TextMeshProUGUI startText;
 	public TextMeshProUGUI printText;
 	public string textToPrint;
-
+	public delegate void AnimPause();
+	public delegate void AnimUnpause();
 	public delegate void PrintComplete();
+	public event AnimPause onAnimPause;
+	public event AnimUnpause onAnimUnpause;
 	public event PrintComplete onPrintComplete;
 
 	bool isProcessingTag;
@@ -46,7 +49,11 @@ public class TextPrinter : MonoBehaviour {
 		textToPrint = text;
 		StartCoroutine (PrintText (time));
 	}
-
+	IEnumerator PauseAnim(float timeToPause){
+		onAnimPause ();
+		yield return new WaitForSeconds (timeToPause);
+		onAnimUnpause ();
+	}
 	IEnumerator PrintText(float timeBtwChars){
 
 		for (int i = 0; i < textToPrint.Length; i++) {
@@ -56,7 +63,24 @@ public class TextPrinter : MonoBehaviour {
 					printText.text += textToPrint [i];
 					yield return new WaitForSeconds (0.085f);
 				}
-			} else if (textToPrint [i] == '<') {
+			} else if (textToPrint [i] == '{') {
+				string waitTime = "";
+				isProcessingTag = true;
+				for (int j = i + 1; j < textToPrint.Length; j++) {
+                    waitTime += textToPrint[j];
+                    if (textToPrint [j] == '}') {
+                        textToPrint = textToPrint.Remove(j-1, 2);
+                        waitTime = waitTime.Replace("}", string.Empty);
+                        break;
+					} else {
+						
+					}
+				}
+                
+                StartCoroutine (PauseAnim (float.Parse(waitTime)));
+				isProcessingTag = false;
+			}
+			else if (textToPrint [i] == '<') {
 
 				isProcessingTag = true;
 				string waitTime = "";

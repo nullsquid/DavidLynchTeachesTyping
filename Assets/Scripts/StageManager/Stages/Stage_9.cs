@@ -14,14 +14,19 @@ public class Stage_9 : Stage {
 	public Animator animator;
     public List<GameObject> JList = new List<GameObject>();
     public List<GameObject> FList = new List<GameObject>();
-    public void OnEnable() {
-        if (TextPrinter.instance != null)
-            TextPrinter.instance.onPrintComplete += EndStage;
-    }
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         seperator.SetActive(false);
@@ -143,6 +148,16 @@ public class Stage_9 : Stage {
         seperator.SetActive(true);
         StartCoroutine(Minigame());
     }
+
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
 
     IEnumerator Minigame() {
 		animator.SetBool ("IsTalking", false);

@@ -10,18 +10,26 @@ public class Stage_11 : Stage {
     public Camera mainCamera;
     public Image blackSolid;
     float t = 0;
+	public Animator animator;
+
     Color temp;
-    public void OnEnable() {
+	public void OnEnable() {
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
+	}
 
-        TextPrinter.instance.onPrintComplete += EndStage;
-    }
-
-    public void OnDisable() {
-        TextPrinter.instance.onPrintComplete -= EndStage;
-    }
+	public void OnDisable() {
+		TextPrinter.instance.onPrintComplete -= EndStage;
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
+        animator.SetBool("IsTalking", true);
         TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11");
 
@@ -29,6 +37,7 @@ public class Stage_11 : Stage {
 
     public override void EndStage() {
 		TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
+        animator.SetBool("IsTalking", false);
         stageIsComplete = true;
 
     }
@@ -63,6 +72,15 @@ public class Stage_11 : Stage {
         }
 
     }
+
+	void AnimatorPause() {
+
+		animator.SetBool("IsTalking", false);
+	}
+
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
 
     IEnumerator StartVideo() {
         mainCamera.GetComponent<CameraGlitch>().enabled = true;
