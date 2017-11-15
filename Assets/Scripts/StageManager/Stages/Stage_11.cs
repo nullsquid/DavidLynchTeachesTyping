@@ -29,6 +29,7 @@ public class Stage_11 : Stage {
 
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
+        animator.SetBool("IsTalking", true);
         TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11");
 
@@ -36,6 +37,7 @@ public class Stage_11 : Stage {
 
     public override void EndStage() {
 		TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
+        animator.SetBool("IsTalking", false);
         stageIsComplete = true;
 
     }

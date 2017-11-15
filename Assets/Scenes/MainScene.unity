@@ -336,7 +336,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367341690}
   m_HandleRect: {fileID: 367341689}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2787,7 +2787,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 1331060598}
   mainCamera: {fileID: 427914958}
   blackSolid: {fileID: 1001564951}
-  animator: {fileID: 0}
+  animator: {fileID: 2050105926}
 --- !u!114 &312451019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7939,7 +7939,7 @@ MonoBehaviour:
   - {fileID: 312451018}
   - {fileID: 836122338}
   testingMode: 0
-  stageNumber: 4
+  stageNumber: 12
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -14236,7 +14236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.38110662, y: 0}
   m_AnchorMax: {x: 0.6454721, y: 0.31362954}
-  m_AnchoredPosition: {x: -7.43412, y: -54.715073}
+  m_AnchoredPosition: {x: -7.43412, y: -54.715088}
   m_SizeDelta: {x: 27, y: 77}
   m_Pivot: {x: 0.61725336, y: 0.199488}
 --- !u!114 &1712697290
