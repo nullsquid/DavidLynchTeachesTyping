@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Stage_2 : Stage {
 	public Animator animator;
+	bool blink = true;
 	public void OnEnable(){
         if (TextPrinter.instance != null) {
             TextPrinter.instance.onPrintComplete += EndStage;
@@ -21,14 +22,15 @@ public class Stage_2 : Stage {
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_2").GetComponent<TextMeshProUGUI>();
 		animator.SetBool ("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("To begin, you are going to rest your fingers on the \"Home Row\" with your left index finger on the 'f' key and the right index finger on the 'j' key", 0.08f);
+		TextPrinter.instance.InvokePrint ("To begin, you are going to rest your fingers on the \"Home Row\" with your left index finger on the 'f' key and the right index finger on the 'j' key\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_2");
 
     }
 
     public override void EndStage(){
 		animator.SetBool ("IsTalking", false);
-		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
+		StartCoroutine(TextBlink());
+		//TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
 		stageIsComplete = true;
 
 	}
@@ -41,7 +43,20 @@ public class Stage_2 : Stage {
     void AnimatorUnpause() {
         animator.SetBool("IsTalking", true);
     }
+	IEnumerator TextBlink(){
+		while (blink == true) {
+			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
+			TextPrinter.instance.printText.text += "<color=yellow>(press any key to continue)</color>";
+			yield return new WaitForSeconds (0.5f);
+			//} else {
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+			yield return new WaitForSeconds (0.5f);
+			//}
 
+		}
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+
+	}
     void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
 			//StageManager.instance.StartStage (2);

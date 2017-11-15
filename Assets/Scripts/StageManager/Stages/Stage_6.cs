@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class Stage_6 : Stage {
 	public Animator animator;
+	bool blink = true;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -26,7 +27,8 @@ public class Stage_6 : Stage {
 
     public override void EndStage() {
         stageIsComplete = true;
-		TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
+		StartCoroutine (TextBlink ());
+		//TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
 		animator.SetBool ("IsTalking", false);
     }
 
@@ -47,10 +49,25 @@ public class Stage_6 : Stage {
 		animator.SetBool("IsTalking", true);
 	}
 
+	IEnumerator TextBlink(){
+		while (blink == true) {
+			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
+			TextPrinter.instance.printText.text += "<color=yellow>(press any key to continue)</color>";
+			yield return new WaitForSeconds (0.5f);
+			//} else {
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+			yield return new WaitForSeconds (0.5f);
+			//}
+
+		}
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+
+	}
+
     IEnumerator ShowThumbsUp() {
         yield return new WaitForSeconds(1);
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Wow! Amazing! Beautiful. We are doing Beautiful work here. That was just great! Let's move on.", 0.08f);
+        TextPrinter.instance.InvokePrint("Wow! Amazing! Beautiful. We are doing Beautiful work here. That was just great! Let's move on.\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_6");
 
     }
