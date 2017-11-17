@@ -45,13 +45,20 @@ public class Stage_7 : Stage {
         yield return new WaitForSeconds(13f);
 		animator.SetBool ("IsTalking", true);
 		Invoke ("StopDialogueAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7B"].length);
+		Invoke ("Blink", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7B"].length);
 		blink = false;
-        TextPrinter.instance.InvokePrint("Place your left ring finger inside the undulating bug", 0.08f);
+        TextPrinter.instance.InvokePrint("Place your left ring finger inside the undulating bug\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_7B");
         yield return new WaitForSeconds(9f);
         StageManager.instance.StartStage(8);
 
     }
+	void Blink(){
+		blink = true;
+		TextPrinter.instance.printText.text += "\n\n";
+		StartCoroutine (TextBlink());
+	}
+
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
