@@ -65,6 +65,7 @@ public class Stage_10 : Stage {
         coffeeAndCigaretteBreak.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         TextPrinter.instance.onPrintComplete -= EndStage;
+        //have to press a button to stop smoke break
         StageManager.instance.StartStage(11);
 
 

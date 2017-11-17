@@ -10,6 +10,7 @@ public class Stage_11 : Stage {
     public Camera mainCamera;
     public Image blackSolid;
     float t = 0;
+    bool blink = true;
 	public Animator animator;
 
     Color temp;
@@ -30,15 +31,31 @@ public class Stage_11 : Stage {
     public override void StartStage() {
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key", 0.08f);
+        TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11");
 
     }
 
     public override void EndStage() {
-		TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
+        StartCoroutine(TextBlink());
+		//TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
         animator.SetBool("IsTalking", false);
         stageIsComplete = true;
+
+    }
+
+    IEnumerator TextBlink() {
+        while (blink == true) {
+            //if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
+            TextPrinter.instance.printText.text += "<color=yellow>(hold down 'A' key to continue)</color>";
+            yield return new WaitForSeconds(0.5f);
+            //} else {
+            TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
+            yield return new WaitForSeconds(0.5f);
+            //}
+
+        }
+        TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
 
     }
 
@@ -61,18 +78,23 @@ public class Stage_11 : Stage {
         
 		else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
 			mainCamera.GetComponent<postVHSPro> ().enabled = false;
+            blink = false;
             //t -= Time.deltaTime / 3;
             t = 0;
             temp.a = 0;
             blackSolid.color = temp;
-
-            TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key", 0.08f);
+            Invoke("SetBlink", GameObject.FindObjectOfType<DialogueAudioHandler>().soundEffects["STAGE_11"].length);
+            TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);
 
 
         }
 
     }
+    void SetBlink() {
+        blink = true;
+        StartCoroutine(TextBlink());
 
+    }
 	void AnimatorPause() {
 
 		animator.SetBool("IsTalking", false);
