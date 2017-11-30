@@ -1,23 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class Stage_2 : Stage {
 	public Animator animator;
+	public ScrollRect scrollrect;
+
 	bool blink = true;
+
 	public void OnEnable(){
-        if (TextPrinter.instance != null) {
-            TextPrinter.instance.onPrintComplete += EndStage;
-            TextPrinter.instance.onAnimPause += AnimatorPause;
-            TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
-        }
+		if(TextPrinter.instance != null)
+		TextPrinter.instance.onPrintComplete += EndStage;
+		TextPrinter.instance.onAnimPause += AnimatorPause;
+		TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
 	}
 
 	public void OnDisable(){
 		TextPrinter.instance.onPrintComplete -= EndStage;
-        TextPrinter.instance.onAnimPause -= AnimatorPause;
-        TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
-    }
+		TextPrinter.instance.onAnimPause -= AnimatorPause;
+		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
+	}
 
 	public override void StartStage(){
 		TextPrinter.instance.printText = GameObject.Find ("MainText_2").GetComponent<TextMeshProUGUI>();
@@ -29,26 +32,28 @@ public class Stage_2 : Stage {
 
     public override void EndStage(){
 		animator.SetBool ("IsTalking", false);
-		StartCoroutine(TextBlink());
+		StartCoroutine (TextBlink ());
 		//TextPrinter.instance.printText.text += "\n\n<color=yellow>press any key to continue</color>";
 		stageIsComplete = true;
 
 	}
 
-    void AnimatorPause() {
+	void AnimatorPause() {
 
-        animator.SetBool("IsTalking", false);
-    }
+		animator.SetBool("IsTalking", false);
+	}
 
-    void AnimatorUnpause() {
-        animator.SetBool("IsTalking", true);
-    }
+	void AnimatorUnpause() {
+		animator.SetBool("IsTalking", true);
+	}
+
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "<color=yellow>(press any key to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
+			scrollrect.enabled = false;
 			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
@@ -57,7 +62,8 @@ public class Stage_2 : Stage {
 		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
 
 	}
-    void Update(){
+
+	void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
 			//StageManager.instance.StartStage (2);
 			TextPrinter.instance.onPrintComplete -= EndStage;

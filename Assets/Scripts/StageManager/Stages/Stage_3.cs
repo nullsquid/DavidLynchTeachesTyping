@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class Stage_3 : Stage {
 	public Animator animator;
+	public ScrollRect scrollrect;
+
 	bool blink = true;
     public void OnEnable() {
-        if (TextPrinter.instance != null)
-            TextPrinter.instance.onPrintComplete += EndStage;
-        TextPrinter.instance.onAnimPause += AnimatorPause;
-        TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		if (TextPrinter.instance != null) {
+			TextPrinter.instance.onPrintComplete += EndStage;
+			TextPrinter.instance.onAnimPause += AnimatorPause;
+			TextPrinter.instance.onAnimUnpause += AnimatorUnpause;
+		}
     }
 
     public void OnDisable() {
@@ -38,6 +42,7 @@ public class Stage_3 : Stage {
 			TextPrinter.instance.printText.text += "<color=yellow>(press 'F' to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
+			scrollrect.enabled = false;
 			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'F' to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
