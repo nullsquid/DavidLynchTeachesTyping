@@ -134,6 +134,7 @@ public class Stage_1 : Stage {
 
     IEnumerator WaitForRock() {
         stageIsComplete = false;
+        //yield return new WaitForSeconds(20f);
         yield return new WaitForSeconds(1.8f);
         StageManager.instance.StartStage(2);
     }
@@ -143,11 +144,11 @@ public class Stage_1 : Stage {
         blackBox.SetActive(false);
 		yield return new WaitForSeconds (loadInTime);
 		lynch.SetActive (true);
-		yield return new WaitForSeconds(loadInTime);
+		yield return new WaitForSeconds(loadInTime * 4);
 		textBox.SetActive(true);
 		yield return new WaitForSeconds(loadInTime);
 		animator.SetBool("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Hello,\nthis is film maker David Lynch{1}....< ;0.3>I'm going <to;0.01> be taking you< ;0.1> through the magical\nworld of typing.{1}< ;0.15> By the time you've finished this computer program.... you'll be a typing wizard!", 0.08f);
+		TextPrinter.instance.InvokePrint ("<Hello;.02>,\n {.7}<This is film maker David Lynch;.050>{.9}<I'm going to be taking you;.06>{0.2}<through the magical world of typing.;0.053>{.65}<By the time you've finished this computer program,;0.048>{0.8}<you'll be;0.04> {0.4} <a typing wizard!;0.09> {1} ", 0.08f);
 		GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_1");
 
 	}

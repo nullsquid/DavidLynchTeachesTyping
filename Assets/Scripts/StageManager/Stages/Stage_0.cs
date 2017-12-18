@@ -9,7 +9,7 @@ public class Stage_0 : Stage {
 	public GameObject startText;
 	public GameObject title;
 	public float unloadWaitTime;
-
+    public Camera mainCamera;
     //specific to intro
     RawImage bkgImg;
     Color temp;
@@ -29,14 +29,17 @@ public class Stage_0 : Stage {
         startText.SetActive(false);
         lynch.SetActive(false);
         title.SetActive(false);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("INTRO_1");
         StartCoroutine(IntroSequence());
     }
 
     IEnumerator IntroSequence() {
-        FindObjectOfType<BackgroundScrollController>().speed = 0.075f;
+        mainCamera.GetComponents<postVHSPro>()[1].enabled = true;
+
+        FindObjectOfType<BackgroundScrollController>().speed = 0.125f;
         bkgImg = background.GetComponent<RawImage>();
         bkgImg.color = new Color(bkgImg.color.r, bkgImg.color.g, bkgImg.color.b, 0);
-        float fadeTime = 5.5f;
+        float fadeTime = 6.6f;
         float opacity = .50f;
         yield return new WaitForSeconds(1.0f);
         StartCoroutine(FadeStripesIn(fadeTime, bkgImg, opacity));
@@ -45,9 +48,11 @@ public class Stage_0 : Stage {
         yield return new WaitForSeconds(fadeTime);
         FindObjectOfType<BackgroundScrollController>().speed = 0.05f;
         bkgImg.color = new Color(bkgImg.color.r, bkgImg.color.g, bkgImg.color.b, 1);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("INTRO_2");
         startText.SetActive(true);
         lynch.SetActive(true);
         title.SetActive(true);
+        mainCamera.GetComponents<postVHSPro>()[1].enabled = false;
         TextPrinter.instance.ClearStartText();
         if (hasBeenCompleted == false)
             TextPrinter.instance.InvokeStartPrint("press any key to begin", 0.05f);
@@ -88,7 +93,8 @@ public class Stage_0 : Stage {
 	}
 
 	IEnumerator StartFakeLoadIn(){
-		FindObjectOfType<BackgroundScrollController> ().speed = 0;
+        GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("INTRO_2");
+        FindObjectOfType<BackgroundScrollController> ().speed = 0;
 		yield return new WaitForSeconds (unloadWaitTime);
 		background.SetActive (false);
 		yield return new WaitForSeconds (unloadWaitTime);

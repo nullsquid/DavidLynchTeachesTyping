@@ -35,6 +35,16 @@ public class DialogueAudioHandler : MonoBehaviour {
         Debug.Log(prevSoundName);
     }
 
+    public void StopAudio(string soundName) {
+        //AudioManager.Instance.StopSound(soundName);
+        foreach(Transform child in this.transform) {
+            if (child.name.Contains(soundName)) {
+                Destroy(child.gameObject);
+            }
+        }
+
+    }
+
 
 
     

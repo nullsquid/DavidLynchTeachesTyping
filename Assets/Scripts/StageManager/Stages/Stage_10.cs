@@ -7,6 +7,9 @@ public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
 	public Animator animator;
+    public Animator rHand;
+    public Animator lHand;
+    bool coffeeBreak = false;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -39,6 +42,10 @@ public class Stage_10 : Stage {
             //play animation?
             //StageManager.instance.StartStage(11);
         }
+        if(coffeeBreak == true && Input.anyKeyDown) {
+            GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("JAZZU");
+            StageManager.instance.StartStage(11);
+        }
     }
     IEnumerator ShowSpeechBubble() {
         yield return new WaitForSeconds(1f);
@@ -59,6 +66,7 @@ public class Stage_10 : Stage {
     IEnumerator WaitForSpeechBubble() {
 		animator.SetBool ("IsTalking", false);
 		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);
+        AnimatorUnpause();
         TextPrinter.instance.InvokePrint("Great work on that typing kiddo! How about you reward yourself with a coffee and a smoke?", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
         yield return new WaitForSeconds(9.5f);
@@ -66,12 +74,17 @@ public class Stage_10 : Stage {
         yield return new WaitForSeconds(2.0f);
         TextPrinter.instance.onPrintComplete -= EndStage;
         //have to press a button to stop smoke break
-        StageManager.instance.StartStage(11);
+        coffeeBreak = true;
+        animator.SetBool("BreakTime", true);
+        lHand.SetTrigger("FadeOut");
+        rHand.SetTrigger("FadeOut");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
+
 
 
     }
 
-	void StopAnim(){
+    void StopAnim(){
 		animator.SetBool ("IsTalking", false);
 	}
 }

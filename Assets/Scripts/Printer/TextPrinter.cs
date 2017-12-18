@@ -67,8 +67,8 @@ public class TextPrinter : MonoBehaviour {
         //while(isPrinting == true)
         //{ 
         for (int i = 0; i < textToPrint.Length; i++) {
-
-            if (textToPrint[i] == '.' || textToPrint[i] == ',' || textToPrint[i] == '!') {
+            //Debug.Log(textToPrint[i]);
+            if (/*textToPrint[i] == '.' ||*/ textToPrint[i] == ',' || textToPrint[i] == '!') {
                 if (textToPrint[i] != '<' || textToPrint[i] != '>') {
                     printText.text += textToPrint[i];
                     yield return new WaitForSeconds(0.085f);
@@ -76,6 +76,7 @@ public class TextPrinter : MonoBehaviour {
             }
             else if (textToPrint[i] == '{') {
                 string waitTime = "";
+                Debug.Log("bloop");
                 isProcessingTag = true;
                 for (int j = i + 1; j < textToPrint.Length; j++) {
                     waitTime += textToPrint[j];
@@ -83,7 +84,8 @@ public class TextPrinter : MonoBehaviour {
                         textToPrint = textToPrint.Remove(j - 1, 2);
                         waitTime = waitTime.Replace("}", string.Empty);
                         break;
-                    } else {
+                    }
+                    else {
 
                     }
                 }
@@ -120,22 +122,24 @@ public class TextPrinter : MonoBehaviour {
 
 
                 }
-
-                i += tag.Length - 1;
-                Debug.Log(wordToPrint + "<<");
+                //Debug.Log(tag.Length);
+                //remove this comment if doesn't work
+                //i += tag.Length - 1;
+                //Debug.Log(wordToPrint + "<<");
                 Debug.Log(waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
-
+                //Debug.Log("TAG IS " + tag);
                 for (int p = 0; p < wordToPrint.Length; p++) {
-                    Debug.Log("running?!");
+                    //Debug.Log("running?!");
                     printText.text += wordToPrint[p];
+                    //textToPrint = textToPrint.Replace(tag, string.Empty);
                     yield return new WaitForSeconds(float.Parse(waitTime.Replace(">", string.Empty).Replace(";", string.Empty)));
                 }
-
+                Debug.Log("TAG IS " + tag + "<<");
+                textToPrint = textToPrint.Replace(tag, string.Empty);
                 //StartCoroutine(PrintTaggedWords(wordToPrint, float.Parse(waitTime.Replace(">", string.Empty).Replace(";", string.Empty))));
                 isProcessingTag = false;
 
             }
-
             else {
                 if (isProcessingTag == false) {
                     //if (textToPrint [i] != '<' || textToPrint [i] != '>') {
