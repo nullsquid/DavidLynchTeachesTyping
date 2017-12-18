@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using TOZ;
 public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
 	public Animator animator;
     public Animator rHand;
     public Animator lHand;
+    public Camera mainCamera;
     bool coffeeBreak = false;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -44,6 +45,7 @@ public class Stage_10 : Stage {
         }
         if(coffeeBreak == true && Input.anyKeyDown) {
             GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("JAZZU");
+            mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = false;
             StageManager.instance.StartStage(11);
         }
     }
@@ -76,6 +78,9 @@ public class Stage_10 : Stage {
         //have to press a button to stop smoke break
         coffeeBreak = true;
         animator.SetBool("BreakTime", true);
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
         lHand.SetTrigger("FadeOut");
         rHand.SetTrigger("FadeOut");
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
