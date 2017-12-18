@@ -15,6 +15,7 @@ public class TextPrinter : MonoBehaviour {
 	public event AnimUnpause onAnimUnpause;
 	public event PrintComplete onPrintComplete;
 
+    bool isPrinting = true;
 	bool isProcessingTag;
 	#region Singleton
 	public static TextPrinter instance;
@@ -56,90 +57,99 @@ public class TextPrinter : MonoBehaviour {
 		yield return new WaitForSeconds (timeToPause);
 		onAnimUnpause ();
 	}
+    IEnumerator PausePrint(float timeToPause) {
+        isPrinting = false;
+        yield return new WaitForSeconds(timeToPause);
+        isPrinting = true;
+    }
 
-	IEnumerator PrintText(float timeBtwChars){
+    IEnumerator PrintText(float timeBtwChars) {
+        //while(isPrinting == true)
+        //{ 
+        for (int i = 0; i < textToPrint.Length; i++) {
 
-		for (int i = 0; i < textToPrint.Length; i++) {
-			
-			if (textToPrint [i] == '.' || textToPrint [i] == ',' || textToPrint [i] == '!') {
-				if (textToPrint [i] != '<' || textToPrint [i] != '>') {
-					printText.text += textToPrint [i];
-					yield return new WaitForSeconds (0.085f);
-				}
-			}
-			else if (textToPrint [i] == '{') {
-				string waitTime = "";
-				isProcessingTag = true;
-				for (int j = i + 1; j < textToPrint.Length; j++) {
-					waitTime += textToPrint[j];
-					if (textToPrint [j] == '}') {
-						textToPrint = textToPrint.Remove(j-1, 2);
-						waitTime = waitTime.Replace("}", string.Empty);
-						break;
-					} else {
+            if (textToPrint[i] == '.' || textToPrint[i] == ',' || textToPrint[i] == '!') {
+                if (textToPrint[i] != '<' || textToPrint[i] != '>') {
+                    printText.text += textToPrint[i];
+                    yield return new WaitForSeconds(0.085f);
+                }
+            }
+            else if (textToPrint[i] == '{') {
+                string waitTime = "";
+                isProcessingTag = true;
+                for (int j = i + 1; j < textToPrint.Length; j++) {
+                    waitTime += textToPrint[j];
+                    if (textToPrint[j] == '}') {
+                        textToPrint = textToPrint.Remove(j - 1, 2);
+                        waitTime = waitTime.Replace("}", string.Empty);
+                        break;
+                    } else {
 
-					}
-				}
+                    }
+                }
 
-				StartCoroutine (PauseAnim (float.Parse(waitTime)));
-				isProcessingTag = false;
-			}
-			else if (textToPrint [i] == '<') {
+                StartCoroutine(PauseAnim(float.Parse(waitTime)));
+                //StartCoroutine(PausePrint(float.Parse(waitTime)));
+                yield return new WaitForSeconds(float.Parse(waitTime));
+                isProcessingTag = false;
+            }
+            else if (textToPrint[i] == '<') {
 
-				isProcessingTag = true;
-				string waitTime = "";
-				string wordToPrint = "";
-				string tag = "";
-				for (int j = i; j < textToPrint.Length; j++) {
+                isProcessingTag = true;
+                string waitTime = "";
+                string wordToPrint = "";
+                string tag = "";
+                for (int j = i; j < textToPrint.Length; j++) {
                     tag += textToPrint[j];
                     //if(textToPrint[j] != ',') {
                     wordToPrint += textToPrint[j];
                     //}
-                    if(textToPrint[j] == ';') {
-                        for(int t = j + 1; t < textToPrint.Length; t++) {
+                    if (textToPrint[j] == ';') {
+                        for (int t = j + 1; t < textToPrint.Length; t++) {
                             waitTime += textToPrint[t];
-                            if(textToPrint[t] == '>') {
+                            if (textToPrint[t] == '>') {
                                 break;
                             }
                         }
-                        
+
                     }
-                    if(textToPrint[j] == '>') {
+                    if (textToPrint[j] == '>') {
                         wordToPrint = wordToPrint.Replace(waitTime, string.Empty).Replace("<", string.Empty).Replace(";", string.Empty).Replace(">", string.Empty);
                         break;
                     }
 
 
                 }
-                
-				i += tag.Length - 1;
-                Debug.Log(wordToPrint +"<<");
-				Debug.Log (waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
-                
-				for (int p = 0; p < wordToPrint.Length; p++) {
+
+                i += tag.Length - 1;
+                Debug.Log(wordToPrint + "<<");
+                Debug.Log(waitTime.Replace(">", string.Empty).Replace(";", string.Empty));
+
+                for (int p = 0; p < wordToPrint.Length; p++) {
                     Debug.Log("running?!");
-					printText.text += wordToPrint [p];
-					yield return new WaitForSeconds (float.Parse (waitTime.Replace (">", string.Empty).Replace(";", string.Empty)));
-				}
-                
+                    printText.text += wordToPrint[p];
+                    yield return new WaitForSeconds(float.Parse(waitTime.Replace(">", string.Empty).Replace(";", string.Empty)));
+                }
+
                 //StartCoroutine(PrintTaggedWords(wordToPrint, float.Parse(waitTime.Replace(">", string.Empty).Replace(";", string.Empty))));
                 isProcessingTag = false;
-				
-			}
-            
+
+            }
+
             else {
-				if (isProcessingTag == false) {
-					//if (textToPrint [i] != '<' || textToPrint [i] != '>') {
-						printText.text += textToPrint [i];
-						yield return new WaitForSeconds (timeBtwChars);
-					//}
-				}
-                else if(isProcessingTag == true) {
+                if (isProcessingTag == false) {
+                    //if (textToPrint [i] != '<' || textToPrint [i] != '>') {
+                    printText.text += textToPrint[i];
+                    yield return new WaitForSeconds(timeBtwChars);
+                    //}
+                }
+                else if (isProcessingTag == true) {
                     yield return null;
                 }
-			}
-            
-		}
+            }
+
+        }
+        //}
 		if (onPrintComplete != null) {
 			Debug.Log ("print complete");
 			onPrintComplete ();

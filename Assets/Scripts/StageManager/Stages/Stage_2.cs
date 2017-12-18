@@ -60,21 +60,21 @@ public class Stage_2 : Stage {
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
-			TextPrinter.instance.printText.text += "<color=yellow>(press any key to continue)</color>";
+			TextPrinter.instance.printText.text += "<color=yellow>(press space to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
 			scrollrect.enabled = false;
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press space to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
 		}
-		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press space to continue)</color>", string.Empty);
 
 	}
 
 	void Update(){
-		if (stageIsComplete == true && Input.anyKeyDown) {
+		if (stageIsComplete == true && Input.GetKeyDown(KeyCode.Space)) {
 			//StageManager.instance.StartStage (2);
 			TextPrinter.instance.onPrintComplete -= EndStage;
 			StageManager.instance.StartStage(3);
