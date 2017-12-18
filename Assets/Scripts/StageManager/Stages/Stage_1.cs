@@ -11,6 +11,7 @@ public class Stage_1 : Stage {
 	public GameObject lynch;
 	public GameObject textBox;
     public GameObject blackBox;
+    float startYPos;
 	bool blink = true;
 	public Scrollbar scrollbar;
 	public void Start(){
@@ -26,6 +27,7 @@ public class Stage_1 : Stage {
 	}
 
 	public override void StartStage(){
+        startYPos = textBox.GetComponent<RectTransform>().anchoredPosition.y;
 		TextPrinter.instance.printText = GameObject.Find ("MainText_1").GetComponent<TextMeshProUGUI>();
 		lynch.SetActive (false);
 		textBox.SetActive (false);
@@ -55,9 +57,10 @@ public class Stage_1 : Stage {
 			//TextPrinter.instance.printText.text = "\n\n";
 			TextPrinter.instance.printText.text = "";
 			TextPrinter.instance.printText.rectTransform.localPosition = new Vector3(TextPrinter.instance.printText.rectTransform.localPosition.x, 0, TextPrinter.instance.printText.rectTransform.localPosition.z);
-			scrollbar.value = 1;
+			//scrollbar.value = 1;
 			blink = false;
 			StartCoroutine(PrintRock());
+            //animator.SetBool("IsTalking", true);
             GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("ROCK");
             StartCoroutine(WaitForRock());
 		}
@@ -85,11 +88,27 @@ public class Stage_1 : Stage {
 
 	IEnumerator PrintRock(){
 		Debug.Log ("rock?");
-		TextPrinter.instance.printText.text += "Let's";
-		yield return new WaitForSeconds (0.7f);
-		TextPrinter.instance.printText.text += " rock";
-	}
-	void AnimatorPause(){
+        scrollbar.size = 1;
+        //scrollbar.value = 1;
+        //textBox.GetComponent<RectTransform>().anchoredPosition.y = new Vector3
+        animator.SetBool("IsTalking", true);
+        TextPrinter.instance.printText.text += "Let's";
+        yield return new WaitForSeconds (0.7f);
+        TextPrinter.instance.printText.text += " rock";
+    }
+    
+    IEnumerator RockAnimator() {
+        animator.SetBool("MouthOpen", true);
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("MouthOpen", false);
+        yield return new WaitForSeconds(0.7f);
+        animator.SetBool("MouthOpen", true);
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("MouthOpen", false);
+    }
+    
+
+    void AnimatorPause(){
 		
 		animator.SetBool("IsTalking", false);
 	}
@@ -128,7 +147,7 @@ public class Stage_1 : Stage {
 		textBox.SetActive(true);
 		yield return new WaitForSeconds(loadInTime);
 		animator.SetBool("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Hello,\nthis is film maker David Lynch{1}....<.;0.3>I'm going <to;0.01> be taking you< ;0.1> through the magical\nworld of typing.{1}< ;0.15> By the time you've finished this computer program.... you'll be a typing wizard!", 0.08f);
+		TextPrinter.instance.InvokePrint ("Hello,\nthis is film maker David Lynch{1}....< ;0.3>I'm going <to;0.01> be taking you< ;0.1> through the magical\nworld of typing.{1}< ;0.15> By the time you've finished this computer program.... you'll be a typing wizard!", 0.08f);
 		GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_1");
 
 	}

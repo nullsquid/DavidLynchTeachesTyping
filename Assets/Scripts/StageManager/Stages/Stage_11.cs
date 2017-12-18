@@ -113,6 +113,7 @@ public class Stage_11 : Stage {
 		blackSolid.color = new Color (0, 0, 0, 0);
 		videoPlayer.SetActive (false);
 		mainCamera.GetComponent<CameraGlitch> ().enabled = false;
+        mainCamera.GetComponent<postVHSPro>().enabled = false;
         StageManager.instance.StartStage(12);
     }
 
