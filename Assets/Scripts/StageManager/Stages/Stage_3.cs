@@ -9,6 +9,7 @@ public class Stage_3 : Stage {
     public Animator fKeyGlow;
     public Animator fingerGlow;
     public Animator rHandAnimator;
+    public Animator keyboard;
 	bool blink = true;
     public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -42,7 +43,9 @@ public class Stage_3 : Stage {
     IEnumerator FadeEvents() {
         yield return new WaitForSeconds(1.0f);
         fingerGlow.SetBool("StartGlow", true);
+        
         yield return new WaitForSeconds(4.65f);
+        keyboard.SetTrigger("FadeIn");
         fingerGlow.SetBool("StartGlow", false);
         fKeyGlow.SetTrigger("FadeIn");
         
