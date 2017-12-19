@@ -6,6 +6,8 @@ public class Stage_5 : Stage {
 	public Animator animator;
     public Animator handAnimator;
     public Animator keyboardAnimator;
+    public Animator fingerAnimator;
+    public Animator jKey;
 	bool blink = true;
     public void OnEnable() {
         if (TextPrinter.instance != null) {
@@ -24,14 +26,24 @@ public class Stage_5 : Stage {
     IEnumerator FadeKeyboardIn() {
         yield return new WaitForSeconds(8.0f);
         keyboardAnimator.SetTrigger("FadeIn");
+        jKey.SetTrigger("FadeIn");
+    }
+    IEnumerator FingerGlow() {
+        yield return new WaitForSeconds(4.5f);
+        fingerAnimator.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(1.5f);
+        fingerAnimator.SetBool("StartGlow", false);
+
     }
 
     IEnumerator FadeHandAndStart() {
+        StartCoroutine(FingerGlow());
         StartCoroutine(FadeKeyboardIn());
         handAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(1.5f);
         TextPrinter.instance.printText = GameObject.Find("MainText_5").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
+        
         TextPrinter.instance.InvokePrint("Alright kiddo...using your 'right Index Finger’, push down on the 'j' key.\n\n", 0.1f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_5");
     }
