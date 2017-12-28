@@ -8,6 +8,7 @@ public class Stage_0 : Stage {
 	public GameObject lynch;
 	public GameObject startText;
 	public GameObject title;
+    public GameObject creditText;
 	public float unloadWaitTime;
     public Camera mainCamera;
     //specific to intro
@@ -29,6 +30,7 @@ public class Stage_0 : Stage {
         startText.SetActive(false);
         lynch.SetActive(false);
         title.SetActive(false);
+        creditText.SetActive(false);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("INTRO_1");
         StartCoroutine(IntroSequence());
     }
@@ -52,6 +54,7 @@ public class Stage_0 : Stage {
         startText.SetActive(true);
         lynch.SetActive(true);
         title.SetActive(true);
+        creditText.SetActive(true);
         mainCamera.GetComponents<postVHSPro>()[1].enabled = false;
         TextPrinter.instance.ClearStartText();
         if (hasBeenCompleted == false)
@@ -97,6 +100,7 @@ public class Stage_0 : Stage {
         FindObjectOfType<BackgroundScrollController> ().speed = 0;
 		yield return new WaitForSeconds (unloadWaitTime);
 		background.SetActive (false);
+        creditText.SetActive(false);
 		yield return new WaitForSeconds (unloadWaitTime);
 		startText.SetActive (false);
 		yield return new WaitForSeconds (unloadWaitTime);
