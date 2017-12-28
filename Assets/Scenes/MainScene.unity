@@ -7852,7 +7852,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 9
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -7879,7 +7879,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 1
@@ -12754,7 +12754,7 @@ MonoBehaviour:
   - {fileID: 312451018}
   - {fileID: 836122338}
   testingMode: 1
-  stageNumber: 9
+  stageNumber: 8
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -15833,7 +15833,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0491333, y: 0.000015258789}
-  m_SizeDelta: {x: -22, y: -136.67296}
+  m_SizeDelta: {x: -22, y: -267.95193}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1095708061
 MonoBehaviour:
@@ -22157,10 +22157,10 @@ RectTransform:
   m_Father: {fileID: 1811297765}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.22600001, y: 0.12900001}
-  m_AnchorMax: {x: 0.9553974, y: 0.5857568}
-  m_AnchoredPosition: {x: -0.5, y: 0.5}
-  m_SizeDelta: {x: 6, y: 0}
+  m_AnchorMin: {x: 0.20672053, y: 0.1221216}
+  m_AnchorMax: {x: 0.9553974, y: 0.44848645}
+  m_AnchoredPosition: {x: -5, y: 1}
+  m_SizeDelta: {x: -9, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552179933
 MonoBehaviour:
@@ -28030,10 +28030,10 @@ RectTransform:
   m_Father: {fileID: 1811297765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.19011788, y: 0.54800004}
-  m_AnchorMax: {x: 0.5217205, y: 0.87063515}
-  m_AnchoredPosition: {x: 0.08999634, y: -3.1959991}
-  m_SizeDelta: {x: -1, y: 7}
+  m_AnchorMin: {x: 0.19011788, y: 0.6165608}
+  m_AnchorMax: {x: 0.38872054, y: 0.96331763}
+  m_AnchoredPosition: {x: -0.49998474, y: 0.1000061}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1946508116
 MonoBehaviour:
@@ -28081,8 +28081,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 69.49
-  m_fontSizeBase: 69.49
+  m_fontSize: 52.73
+  m_fontSizeBase: 52.73
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -28099,7 +28099,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
