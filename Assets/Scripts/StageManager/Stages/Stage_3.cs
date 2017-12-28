@@ -45,7 +45,7 @@ public class Stage_3 : Stage {
         fingerGlow.SetBool("StartGlow", true);
         
         yield return new WaitForSeconds(4.65f);
-        keyboard.SetTrigger("FadeIn");
+        //keyboard.SetTrigger("FadeIn");
         fingerGlow.SetBool("StartGlow", false);
         fKeyGlow.SetTrigger("FadeIn");
         
