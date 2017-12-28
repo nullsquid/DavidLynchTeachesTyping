@@ -6,6 +6,7 @@ public class Stage_7 : Stage {
 	public Animator animator;
     public Animator keyboardAnim;
     public Animator bugAnim;
+    public Animator fingerAnim;
 	bool blink = true;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -46,7 +47,22 @@ public class Stage_7 : Stage {
         bugAnim.SetTrigger("BugSlideIn");
     }
 
+    IEnumerator FingerGlow() {
+        yield return new WaitForSeconds(2.5f);
+        fingerAnim.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(2f);
+        fingerAnim.SetBool("StartGlow", false);
+        yield return new WaitForSeconds(9f);
+        fingerAnim.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(2f);
+        fingerAnim.SetBool("StartGlow", false);
+
+
+
+    }
+
     IEnumerator InvokeBugText() {
+        StartCoroutine(FingerGlow());
         StartCoroutine(InvokeBugSlideIn());
         //yield return new WaitForSeconds(7f);
 		animator.SetBool ("IsTalking", true);

@@ -25,7 +25,7 @@ public class Stage_5 : Stage {
 
     IEnumerator FadeKeyboardIn() {
         yield return new WaitForSeconds(8.0f);
-        keyboardAnimator.SetTrigger("FadeIn");
+        //keyboardAnimator.SetTrigger("FadeIn");
         jKey.SetTrigger("FadeIn");
     }
     IEnumerator FingerGlow() {

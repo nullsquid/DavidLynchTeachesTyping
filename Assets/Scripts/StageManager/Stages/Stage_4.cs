@@ -52,15 +52,15 @@ public class Stage_4 : Stage {
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
-			TextPrinter.instance.printText.text += "<color=yellow>(press 'Space' to continue)</color>";
+			TextPrinter.instance.printText.text += "<color=yellow>(press 'Space Bar' to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space' to continue)</color>", string.Empty);
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space Bar' to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
 		}
-		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space' to continue)</color>", string.Empty);
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space Bar' to continue)</color>", string.Empty);
 
 	}
 
