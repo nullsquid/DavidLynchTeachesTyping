@@ -81,8 +81,8 @@ public class Stage_10 : Stage {
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
-        lHand.SetTrigger("FadeOut");
-        rHand.SetTrigger("FadeOut");
+        lHand.SetTrigger("FadeLong");
+        rHand.SetTrigger("FadeLong");
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
 
 
