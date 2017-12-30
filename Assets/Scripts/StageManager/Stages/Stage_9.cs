@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 
 public class Stage_9 : Stage {
+	public GameObject lHand;
+	public GameObject rHand;
     public GameObject seperator;
     public GameObject mainText;
     public GameObject portrait;
@@ -161,6 +163,8 @@ public class Stage_9 : Stage {
 
     IEnumerator Minigame() {
 		animator.SetBool ("IsTalking", false);
+		rHand.SetActive (false);
+		lHand.SetActive (false);
         FList[0].SetActive(true);
         yield return new WaitForSeconds(Random.Range(.5f, 2f));
         JList[0].SetActive(true);

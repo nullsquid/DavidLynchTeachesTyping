@@ -23,8 +23,8 @@ public class Stage_8 : Stage {
 	}
     
     public override void StartStage() {
-        
-        TextPrinter.instance.printText = GameObject.Find("MainText_8").GetComponent<TextMeshProUGUI>();
+        //TextPrinter.instance.printText = GameObject.Find("MainText_8").GetComponent<TextMeshProUGUI>();
+        TextPrinter.instance.printText = GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>();
         StartCoroutine(InvokeErrorText());
 
 
@@ -38,7 +38,7 @@ public class Stage_8 : Stage {
     }
 
     void Update() {
-        if (stageIsComplete == true && Input.anyKeyDown) {
+		if (stageIsComplete == true && Input.GetKeyDown(KeyCode.Space)) {
             TextPrinter.instance.onPrintComplete -= EndStage;
 			//TextPrinter.instance.InvokePrint("\n\nPlace your left ring finger inside the undulating bug next to your keyboard.", 0.08f);
 
@@ -59,15 +59,15 @@ public class Stage_8 : Stage {
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
-			TextPrinter.instance.printText.text += "<color=yellow>(press any key to continue)</color>";
+			TextPrinter.instance.printText.text += "(press 'Space Bar' to continue)";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
 		}
-		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press any key to continue)</color>", string.Empty);
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
 
 	}
 
@@ -78,10 +78,10 @@ public class Stage_8 : Stage {
         yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraGlitch>().enabled = false;
         errorMessage.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
-        errorMessage.SetActive(false);
+        //yield return new WaitForSeconds(1.0f);
+        //errorMessage.SetActive(false);
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("It appears there has been a glitch in the software... We will have to move on\n\n", 0.08f);
+        TextPrinter.instance.InvokePrint("It appears there has been a glitch in the software... We will have to move on\n\n", 0.01f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_8");
 
     }

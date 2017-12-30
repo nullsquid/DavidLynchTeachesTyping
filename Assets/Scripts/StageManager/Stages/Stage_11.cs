@@ -9,6 +9,9 @@ public class Stage_11 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
     public Image blackSolid;
+    public Animator keyboard;
+    public Animator aKey;
+    public Animator pinkyGlow;
     float t = 0;
     bool blink = true;
 	public Animator animator;
@@ -28,7 +31,22 @@ public class Stage_11 : Stage {
 		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
 	}
 
+    IEnumerator AKeyHighlight() {
+        yield return new WaitForSeconds(8.7f);
+        //keyboard.SetTrigger("FadeIn");
+        aKey.SetTrigger("FadeIn");
+    }
+
+    IEnumerator PinkyGlow() {
+        yield return new WaitForSeconds(4.0f);
+        pinkyGlow.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(3.5f);
+        pinkyGlow.SetBool("StartGlow", false);
+    }
+
     public override void StartStage() {
+        StartCoroutine(PinkyGlow());
+        StartCoroutine(AKeyHighlight());
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
         TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);

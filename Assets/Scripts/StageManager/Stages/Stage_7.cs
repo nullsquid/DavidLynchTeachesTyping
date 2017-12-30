@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 public class Stage_7 : Stage {
 	public Animator animator;
+    public Animator keyboardAnim;
+    public Animator bugAnim;
+    public Animator fingerAnim;
 	bool blink = true;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -37,7 +40,31 @@ public class Stage_7 : Stage {
             StageManager.instance.StartStage(4);
         }*/
     }
+
+    IEnumerator InvokeBugSlideIn() {
+        yield return new WaitForSeconds(5.0f);
+        keyboardAnim.SetTrigger("SlideOut");
+        bugAnim.SetTrigger("BugSlideIn");
+    }
+
+    IEnumerator FingerGlow() {
+        yield return new WaitForSeconds(2.5f);
+        fingerAnim.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(2f);
+        fingerAnim.SetBool("StartGlow", false);
+        yield return new WaitForSeconds(9f);
+        fingerAnim.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(2f);
+        fingerAnim.SetBool("StartGlow", false);
+
+
+
+    }
+
     IEnumerator InvokeBugText() {
+        StartCoroutine(FingerGlow());
+        StartCoroutine(InvokeBugSlideIn());
+        //yield return new WaitForSeconds(7f);
 		animator.SetBool ("IsTalking", true);
 		Invoke ("StopDialogueAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7A"].length);
         TextPrinter.instance.InvokePrint("Now, place your left ring finger inside the undulating bug next to your keyboard.\n\n", 0.08f);

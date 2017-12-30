@@ -6,7 +6,8 @@ using UnityEngine.Video;
 public class Stage_12 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
-	public Animator animator;
+	//might need to fix this up some
+	//public Animator animator;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -41,20 +42,20 @@ public class Stage_12 : Stage {
 
 	void AnimatorPause() {
 
-		animator.SetBool("IsTalking", false);
+		//animator.SetBool("IsTalking", false);
 	}
 
 	void AnimatorUnpause() {
-		animator.SetBool("IsTalking", true);
+		//animator.SetBool("IsTalking", true);
 	}
 
     IEnumerator InvokeThankYou() {
-        TextPrinter.instance.InvokePrint("Trial Version Over, Thank you for typing.", 0.08f);
-        yield return new WaitForSeconds(10f);
-        animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("\n\nThank you for letting me teach you how to type. To purchase to full version, go into the nearest bathtub and make smacking noises with your hands until someone can assist you.", 0.08f);
+        //animator.SetBool("IsTalking", true);
+		GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("INTRO_2");
+        TextPrinter.instance.InvokePrint("\nThank you for letting me teach you how to type. To purchase to full version, go into the nearest bathtub and make smacking noises with your hands until someone can assist you.", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
         yield return new WaitForSeconds(17.5f);
+		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("INTRO_2");
         StageManager.instance.StartStage(0);
     }
 

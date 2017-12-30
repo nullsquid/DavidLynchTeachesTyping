@@ -9,6 +9,7 @@ public class Stage_2 : Stage {
     public Animator rHand;
     public Animator lHand;
     public Animator wipe;
+    public Animator homeRow;
     public GameObject wipeObj;
 	bool blink = true;
 
@@ -43,8 +44,15 @@ public class Stage_2 : Stage {
 
     }
 
+    IEnumerator GlowEvent() {
+        yield return new WaitForSeconds(5f);
+        homeRow.SetTrigger("FadeIn");
+        //yield return new WaitForSeconds(2.5f);
+        //homeRow.SetTrigger("FadeOut");
+    }
 
     IEnumerator FadeEvent() {
+        StartCoroutine(GlowEvent());
         yield return new WaitForSeconds(3.5f);
         rHand.SetTrigger("FadeIn");
         lHand.SetTrigger("FadeIn");
