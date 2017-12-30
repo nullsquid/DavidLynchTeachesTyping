@@ -33,7 +33,7 @@ public class Stage_11 : Stage {
 
     IEnumerator AKeyHighlight() {
         yield return new WaitForSeconds(8.7f);
-        keyboard.SetTrigger("FadeIn");
+        //keyboard.SetTrigger("FadeIn");
         aKey.SetTrigger("FadeIn");
     }
 
