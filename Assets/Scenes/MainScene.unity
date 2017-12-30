@@ -13279,7 +13279,7 @@ MonoBehaviour:
   - {fileID: 312451018}
   - {fileID: 1305517839}
   testingMode: 1
-  stageNumber: 11
+  stageNumber: 1
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
