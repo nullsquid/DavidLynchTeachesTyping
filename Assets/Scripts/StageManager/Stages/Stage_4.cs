@@ -73,7 +73,7 @@ public class Stage_4 : Stage {
         StartCoroutine(FadeHand());
 		yield return new WaitForSeconds (1);
 		animator.SetBool ("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Wow! {.5}Excellent!{.5} Well Done!{.5} Let's move on to the next key.\n\n", 0.08f);
+		TextPrinter.instance.InvokePrint ("<Wow! ;0.08>{.5}<Excellent! ;0.08>{.5}<Well Done! ;0.08>{.5}<Let's move on ;0.08>{.3}<to the next key.\n\n;0.08>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_4");
 
     }

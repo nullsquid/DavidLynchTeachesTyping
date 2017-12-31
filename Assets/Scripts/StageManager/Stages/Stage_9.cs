@@ -143,16 +143,21 @@ public class Stage_9 : Stage {
 
     IEnumerator StartMinigame() {
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Okay, We are going to assess your typing speed. Are you ready?", 0.08f);
+        TextPrinter.instance.InvokePrint("<Okay, ;0.06>{1.5}<We are now going ;0.06>{.6}<to assess your speed. ;0.06>{.6}<Are you ready? ;0.06>", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_9");
         yield return new WaitForSeconds(10f);
         mainText.SetActive(false);
         seperator.SetActive(true);
         StartCoroutine(Minigame());
+
+    }
+
+    void MiniGameStart() {
+        //StartCoroutine(Minigame());
     }
 
 
-	void AnimatorPause() {
+    void AnimatorPause() {
 
 		animator.SetBool("IsTalking", false);
 	}

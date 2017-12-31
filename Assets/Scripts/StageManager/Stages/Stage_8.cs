@@ -81,7 +81,7 @@ public class Stage_8 : Stage {
         //yield return new WaitForSeconds(1.0f);
         //errorMessage.SetActive(false);
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("It appears there has been a glitch in the software... We will have to move on\n\n", 0.01f);
+        TextPrinter.instance.InvokePrint("<It appears there has been a glitch in the software... We will have to move on\n\n;0.01>{8}", 0.01f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_8");
 
     }

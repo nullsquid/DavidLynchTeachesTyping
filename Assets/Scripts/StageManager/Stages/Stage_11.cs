@@ -49,7 +49,7 @@ public class Stage_11 : Stage {
         StartCoroutine(AKeyHighlight());
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);
+        TextPrinter.instance.InvokePrint("{1}<Okay ;0.07>{1.1}<using your ;0.07>{.2}<left ;0.07>{.4}<pinky finger, ;0.07>{.4}<hold down ;0.07>{.5}<the ;0.07>{.2}<'A' ;0.07>{.2}<key\n\n;0.07>", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11");
 
     }
