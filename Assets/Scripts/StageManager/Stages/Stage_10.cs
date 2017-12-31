@@ -69,7 +69,7 @@ public class Stage_10 : Stage {
 		animator.SetBool ("IsTalking", false);
 		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);
         AnimatorUnpause();
-        TextPrinter.instance.InvokePrint("Great work on that typing kiddo! How about you reward yourself with a coffee and a smoke?", 0.08f);
+        TextPrinter.instance.InvokePrint("<Great work ;0.07>{.4}<kiddo! ;0.07>{1}<How about ;0.07>{.2}<you reward yourself ;0.07>{.2}<with a coffee and a smoke? ;0.07>{4}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
         yield return new WaitForSeconds(9.5f);
         coffeeAndCigaretteBreak.SetActive(true);
@@ -81,8 +81,8 @@ public class Stage_10 : Stage {
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
         mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
-        lHand.SetTrigger("FadeOut");
-        rHand.SetTrigger("FadeOut");
+        lHand.SetTrigger("FadeLong");
+        rHand.SetTrigger("FadeLong");
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
 
 

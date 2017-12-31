@@ -148,7 +148,7 @@ public class Stage_1 : Stage {
 		textBox.SetActive(true);
 		yield return new WaitForSeconds(loadInTime);
 		animator.SetBool("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("<Hello;.02>,\n {.7}<This is film maker David Lynch;.050>{.9}<I'm going to be taking you;.06>{0.2}<through the magical world of typing.;0.053>{.65}<By the time you've finished this computer program,;0.048>{0.8}<you'll be;0.04> {0.4} <a typing wizard!;0.09> {1} ", 0.08f);
+		TextPrinter.instance.InvokePrint ("<Hello, \n;.02>{.5}<This is film maker David Lynch\n;.050>{.9}<I'm going to be taking you ;.06>{0.2}<through the magical world of typing. ;0.053>{0.65}<By the time you've finished this computer program,;0.048>{0.8}<you'll be;0.04> {0.4}< a typing wizard!;0.09> {1} ", 0.08f);
 		GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_1");
 
 	}
