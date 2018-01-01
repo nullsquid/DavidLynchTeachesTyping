@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class Stage_9 : Stage {
+    public ScrollRect scrollrect;
 	public GameObject lHand;
 	public GameObject rHand;
     public GameObject seperator;
