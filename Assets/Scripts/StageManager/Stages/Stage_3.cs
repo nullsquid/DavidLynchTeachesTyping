@@ -6,7 +6,10 @@ using TMPro;
 public class Stage_3 : Stage {
 	public Animator animator;
 	public ScrollRect scrollrect;
-
+    public Animator fKeyGlow;
+    public Animator fingerGlow;
+    public Animator rHandAnimator;
+    public Animator keyboard;
 	bool blink = true;
     public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -22,12 +25,30 @@ public class Stage_3 : Stage {
         TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
     }
 
-    public override void StartStage(){
-		TextPrinter.instance.printText = GameObject.Find ("MainText_3").GetComponent<TextMeshProUGUI>();
-		animator.SetBool ("IsTalking", true);
-		TextPrinter.instance.InvokePrint ("Now... Using your left index finger, push down on the F Key\n\n", 0.08f);
+    IEnumerator FadeAndStartStage() {
+        rHandAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2.0f);
+        StartCoroutine(FadeEvents());
+        TextPrinter.instance.printText = GameObject.Find("MainText_3").GetComponent<TextMeshProUGUI>();
+        animator.SetBool("IsTalking", true);
+        TextPrinter.instance.InvokePrint("<Using your ;0.08>{.2}<left ;0.075>{.2}<index finger, ;0.08>{.6} <push down ;0.09> {.6} <on the ;0.06> <F ;0.06> {.4}<Key\n\n;0.06>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_3");
+    }
 
+    public override void StartStage(){
+        StartCoroutine(FadeAndStartStage());
+
+    }
+
+    IEnumerator FadeEvents() {
+        yield return new WaitForSeconds(1.0f);
+        fingerGlow.SetBool("StartGlow", true);
+        
+        yield return new WaitForSeconds(4.65f);
+        //keyboard.SetTrigger("FadeIn");
+        fingerGlow.SetBool("StartGlow", false);
+        fKeyGlow.SetTrigger("FadeIn");
+        
     }
 
     public override void EndStage(){

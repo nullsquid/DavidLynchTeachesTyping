@@ -6,13 +6,18 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 
 public class Stage_11 : Stage {
+    public ScrollRect scrollrect;
     public GameObject videoPlayer;
     public Camera mainCamera;
     public Image blackSolid;
+    public Animator keyboard;
+    public Animator aKey;
+    public Animator pinkyGlow;
+    bool pressed = false;
     float t = 0;
     bool blink = true;
 	public Animator animator;
-
+    int timesPressed = 0;
     Color temp;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -28,10 +33,26 @@ public class Stage_11 : Stage {
 		TextPrinter.instance.onAnimUnpause -= AnimatorUnpause;
 	}
 
+    IEnumerator AKeyHighlight() {
+        yield return new WaitForSeconds(8.7f);
+        //keyboard.SetTrigger("FadeIn");
+        aKey.SetTrigger("FadeIn");
+    }
+
+    IEnumerator PinkyGlow() {
+        yield return new WaitForSeconds(4.0f);
+        pinkyGlow.SetBool("StartGlow", true);
+        yield return new WaitForSeconds(3.5f);
+        pinkyGlow.SetBool("StartGlow", false);
+    }
+
     public override void StartStage() {
+        blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
+        StartCoroutine(PinkyGlow());
+        StartCoroutine(AKeyHighlight());
         TextPrinter.instance.printText = GameObject.Find("MainText_11").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("Okay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);
+        TextPrinter.instance.InvokePrint("{1}<Okay ;0.07>{1.1}<using your ;0.07>{.2}<left ;0.07>{.4}<pinky finger, ;0.07>{.4}<hold down ;0.07>{.5}<the ;0.07>{.2}<'A' ;0.07>{.2}<key\n\n;0.07>", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11");
 
     }
@@ -50,6 +71,7 @@ public class Stage_11 : Stage {
             TextPrinter.instance.printText.text += "<color=yellow>(hold down 'A' key to continue)</color>";
             yield return new WaitForSeconds(0.5f);
             //} else {
+            scrollrect.enabled = false;
             TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
             yield return new WaitForSeconds(0.5f);
             //}
@@ -58,7 +80,37 @@ public class Stage_11 : Stage {
         TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
 
     }
+    IEnumerator KeyWasPressed() {
+        
+        if (timesPressed == 0 && pressed == true) {
+            temp.a = 0;
+            blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
 
+            StageManager.instance.StartStage(11);
+            //Invoke("KeyWasPressed", 0);
+            yield return new WaitForSeconds(1);
+            timesPressed++;
+            pressed = false;
+        }
+        else if (timesPressed == 1 && pressed == true) {
+            temp.a = 0;
+            blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
+
+            StageManager.instance.StartStage(11);
+            yield return new WaitForSeconds(1);
+            timesPressed++;
+            //Invoke("KeyWasPressed", 0);
+            pressed = false;
+        }
+        else if (timesPressed == 2 && temp.a == 1) {
+            //StageManager.instance.StartStage(12);
+            StartCoroutine(StartVideo());
+        }
+        yield return null;
+    }
+    void InvokeNextPress() {
+        StartCoroutine(KeyWasPressed());
+    }
     void Update() {
         if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
@@ -66,17 +118,20 @@ public class Stage_11 : Stage {
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
             t += Time.deltaTime / 3;
-            temp.a = Mathf.Lerp(0, 1, t);
-            blackSolid.color = temp;
+            temp.a = Mathf.Lerp(0, 1, t);            blackSolid.color = temp;
 			//mainCamera.GetComponent<postVHSPro>().signalNoiseAmount = temp;
 			if (temp.a == 1) {
-				StartCoroutine(StartVideo());
-			}
+                Debug.Log(timesPressed);
+                StartCoroutine(StartVideo());
+
+
+            }
 
         }
-
         
-		else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
+
+
+        else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
 			mainCamera.GetComponent<postVHSPro> ().enabled = false;
             blink = false;
             //t -= Time.deltaTime / 3;
@@ -88,6 +143,7 @@ public class Stage_11 : Stage {
 
 
         }
+        
 
     }
     void SetBlink() {
@@ -113,8 +169,10 @@ public class Stage_11 : Stage {
 		blackSolid.color = new Color (0, 0, 0, 0);
 		videoPlayer.SetActive (false);
 		mainCamera.GetComponent<CameraGlitch> ().enabled = false;
+        mainCamera.GetComponent<postVHSPro>().enabled = false;
         StageManager.instance.StartStage(12);
     }
+    
 
 
 }

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using TOZ;
 public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
 	public Animator animator;
+    public Animator rHand;
+    public Animator lHand;
+    public Camera mainCamera;
+    bool coffeeBreak = false;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -39,6 +43,11 @@ public class Stage_10 : Stage {
             //play animation?
             //StageManager.instance.StartStage(11);
         }
+        if(coffeeBreak == true && Input.anyKeyDown) {
+            GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("JAZZU");
+            mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = false;
+            StageManager.instance.StartStage(11);
+        }
     }
     IEnumerator ShowSpeechBubble() {
         yield return new WaitForSeconds(1f);
@@ -59,19 +68,28 @@ public class Stage_10 : Stage {
     IEnumerator WaitForSpeechBubble() {
 		animator.SetBool ("IsTalking", false);
 		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);
-        TextPrinter.instance.InvokePrint("Great work on that typing kiddo! How about you reward yourself with a coffee and a smoke?", 0.08f);
+        AnimatorUnpause();
+        TextPrinter.instance.InvokePrint("<Great work ;0.07>{.4}<kiddo! ;0.07>{1}<How about ;0.07>{.2}<you reward yourself ;0.07>{.2}<with a coffee and a smoke? ;0.07>{4}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
         yield return new WaitForSeconds(9.5f);
         coffeeAndCigaretteBreak.SetActive(true);
         yield return new WaitForSeconds(2.0f);
         TextPrinter.instance.onPrintComplete -= EndStage;
         //have to press a button to stop smoke break
-        StageManager.instance.StartStage(11);
+        coffeeBreak = true;
+        animator.SetBool("BreakTime", true);
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
+        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
+        lHand.SetTrigger("FadeLong");
+        rHand.SetTrigger("FadeLong");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
+
 
 
     }
 
-	void StopAnim(){
+    void StopAnim(){
 		animator.SetBool ("IsTalking", false);
 	}
 }
