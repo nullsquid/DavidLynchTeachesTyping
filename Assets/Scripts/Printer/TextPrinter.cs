@@ -68,7 +68,7 @@ public class TextPrinter : MonoBehaviour {
         int speedTag = -1;
         int pauseTag = -1;
         for (int i = 0; i < textToPrint.Length; i++) {
-            Debug.Log(isPrinting);
+            //Debug.Log(isPrinting);
 
             if (isPrinting == false) {
                 if (textToPrint[i] == '<') {

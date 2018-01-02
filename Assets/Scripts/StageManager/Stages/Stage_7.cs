@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class Stage_7 : Stage {
 	public Animator animator;
     public Animator keyboardAnim;
     public Animator bugAnim;
     public Animator fingerAnim;
+    public ScrollRect scrollrect;
 	bool blink = true;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -74,6 +76,8 @@ public class Stage_7 : Stage {
 		Invoke ("StopDialogueAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7B"].length);
 		Invoke ("Blink", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_7B"].length);
 		blink = false;
+        scrollrect.enabled = true;
+
         TextPrinter.instance.InvokePrint("<Place your left ;0.07>{.2}<ring finger ;0.07>{.5}<in the undulating bug ;0.07>\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_7B");
         yield return new WaitForSeconds(9f);
@@ -91,8 +95,9 @@ public class Stage_7 : Stage {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "<color=yellow>(press bug to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
-			//} else {
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press bug to continue)</color>", string.Empty);
+            //} else {
+            scrollrect.enabled = false;
+            TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press bug to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 

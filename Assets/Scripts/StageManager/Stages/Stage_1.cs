@@ -87,7 +87,7 @@ public class Stage_1 : Stage {
 	}
 
 	IEnumerator PrintRock(){
-		Debug.Log ("rock?");
+		//Debug.Log ("rock?");
         scrollbar.size = 1;
         //scrollbar.value = 1;
         //textBox.GetComponent<RectTransform>().anchoredPosition.y = new Vector3

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.UI;
 public class Stage_8 : Stage {
 	public Animator animator;
     public Camera mainCamera;
     public GameObject errorMessage;
 	bool blink = true;
+    public ScrollRect scrollrect;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -61,8 +62,9 @@ public class Stage_8 : Stage {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "(press 'Space Bar' to continue)";
 			yield return new WaitForSeconds (0.5f);
-			//} else {
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
+            //} else {
+            scrollrect.enabled = false;
+            TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
