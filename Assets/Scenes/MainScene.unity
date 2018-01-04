@@ -13282,7 +13282,7 @@ MonoBehaviour:
   - {fileID: 539634579}
   - {fileID: 312451018}
   - {fileID: 1305517839}
-  testingMode: 1
+  testingMode: 0
   stageNumber: 7
 --- !u!4 &910334499
 Transform:
