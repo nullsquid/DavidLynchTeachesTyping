@@ -46,7 +46,7 @@ public class Stage_5 : Stage {
         TextPrinter.instance.printText = GameObject.Find("MainText_5").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
         
-        TextPrinter.instance.InvokePrint("<Alright ;0.09>{.4}<kiddo. ;0.09>{.6}<using your 'right ;0.07>{.2}<Index Finger’ ;0.07>,{.2}<push down ;0.09>{.3}<on the ;0.09><'j' key.\n\n;0.1>", 0.1f);
+        TextPrinter.instance.InvokePrint("<Alright ;0.09>{.4}<kiddo. ;0.09>{.6}<using your 'Right ;0.07>{.2}<Index Finger’ ;0.07>,{.2}<push down ;0.09>{.3}<on the ;0.09><'J' key.\n\n;0.1>", 0.1f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_5");
     }
 

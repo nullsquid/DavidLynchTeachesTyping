@@ -31,7 +31,7 @@ public class Stage_3 : Stage {
         StartCoroutine(FadeEvents());
         TextPrinter.instance.printText = GameObject.Find("MainText_3").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("<Using your ;0.08>{.2}<left ;0.075>{.2}<index finger, ;0.08>{.6} <push down ;0.09> {.6} <on the ;0.06> <F ;0.06> {.4}<Key\n\n;0.06>{1}", 0.08f);
+        TextPrinter.instance.InvokePrint("<Using your ;0.08>{.2}<'Left ;0.075>{.2}<Index Finger', ;0.08>{.6} <push down ;0.09> {.6} <on the ;0.06> <'F' ;0.06> {.4}<Key\n\n;0.06>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_3");
     }
 

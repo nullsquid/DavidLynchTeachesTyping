@@ -470,7 +470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.35200003, y: 0}
   m_AnchorMax: {x: 0.65247214, y: 0.30200002}
-  m_AnchoredPosition: {x: 10.500042, y: -29.800323}
+  m_AnchoredPosition: {x: 10.500042, y: -29.800339}
   m_SizeDelta: {x: 12, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &40383766
@@ -1192,7 +1192,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -1861,7 +1861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2617749, y: 0.34628785}
-  m_AnchoredPosition: {x: -34.500366, y: -36}
+  m_AnchoredPosition: {x: -34.500366, y: -36.000015}
   m_SizeDelta: {x: 43, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158908416
@@ -2140,7 +2140,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -2167,14 +2167,14 @@ MonoBehaviour:
     spaceCount: 6
     wordCount: 7
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2819,7 +2819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.38110662, y: 0}
   m_AnchorMax: {x: 0.6454721, y: 0.31362954}
-  m_AnchoredPosition: {x: -7.43412, y: -54.715378}
+  m_AnchoredPosition: {x: -7.43412, y: -54.715363}
   m_SizeDelta: {x: 27, y: 77}
   m_Pivot: {x: 0.61725336, y: 0.199488}
 --- !u!114 &217674471
@@ -2872,7 +2872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &220368259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3452,7 +3452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &249112663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3466,6 +3466,7 @@ RectTransform:
   - {fileID: 2136347557}
   - {fileID: 1449310487}
   - {fileID: 2024913178}
+  - {fileID: 1151498129}
   m_Father: {fileID: 2015311567}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3486,7 +3487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.9137255, g: 0.9843137, b: 0.3254902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4905,11 +4906,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6116,7 +6117,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6770,7 +6771,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -7638,7 +7639,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.059143066, y: 0.000030517578}
-  m_SizeDelta: {x: -22, y: 0}
+  m_SizeDelta: {x: -22, y: -267.95193}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &476760458
 MonoBehaviour:
@@ -7748,11 +7749,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8147,7 +8148,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -9243,7 +9244,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 401337621}
   m_HandleRect: {fileID: 401337620}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13140,7 +13141,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -13282,7 +13283,7 @@ MonoBehaviour:
   - {fileID: 539634579}
   - {fileID: 312451018}
   - {fileID: 1305517839}
-  testingMode: 0
+  testingMode: 1
   stageNumber: 7
 --- !u!4 &910334499
 Transform:
@@ -14474,7 +14475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.36861992, y: 0}
   m_AnchorMax: {x: 0.66346496, y: 0.358}
-  m_AnchoredPosition: {x: 9.5, y: -41.00003}
+  m_AnchoredPosition: {x: 9.5, y: -41.000046}
   m_SizeDelta: {x: 25, y: 77.00006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &988289644
@@ -14932,7 +14933,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.23915741, y: 0.31362954}
-  m_AnchoredPosition: {x: -25.000305, y: -30.10019}
+  m_AnchoredPosition: {x: -25.000305, y: -30.100204}
   m_SizeDelta: {x: 42, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008943610
@@ -15022,7 +15023,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -16845,7 +16846,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -16891,7 +16892,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 9
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -16918,14 +16919,14 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -17045,7 +17046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -43.9, y: -71.89999}
+  m_AnchoredPosition: {x: -43.9, y: -71.899994}
   m_SizeDelta: {x: -90.8, y: -141.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129428692
@@ -17135,7 +17136,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -17203,7 +17204,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1131976159}
-    characterCount: 13
+    characterCount: 17
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -17439,7 +17440,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -17539,6 +17540,160 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150951306}
+--- !u!1 &1151498128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1151498129}
+  - component: {fileID: 1151498131}
+  - component: {fileID: 1151498130}
+  m_Layer: 5
+  m_Name: TextMeshPro Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1151498129
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151498128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 249112663}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.684, y: 0.095893964}
+  m_AnchorMax: {x: 0.88000005, y: 0.18058077}
+  m_AnchoredPosition: {x: -2, y: 1}
+  m_SizeDelta: {x: 6, y: -2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1151498130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151498128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_text: Trial Version
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: bb1b360f53d5c6845b0423d8019a13f4, type: 2}
+  m_sharedMaterial: {fileID: 21373496132797364, guid: bb1b360f53d5c6845b0423d8019a13f4,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4283694057
+  m_fontColor: {r: 0.9137255, g: 0.9843137, b: 0.3254902, a: 1}
+  m_enableVertexGradient: 0
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 29.61
+  m_fontSizeBase: 29.61
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 514
+  m_isAlignmentEnumConverted: 1
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1151498130}
+    characterCount: 13
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 2
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_havePropertiesChanged: 0
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_isInputParsingRequired: 0
+  m_inputSource: 0
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1151498131
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1151498128}
 --- !u!1 &1156082813
 GameObject:
   m_ObjectHideFlags: 0
@@ -17721,7 +17876,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -17789,7 +17944,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1161525604}
-    characterCount: 13
+    characterCount: 17
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -17881,7 +18036,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.35200003, y: 0}
   m_AnchorMax: {x: 0.65247214, y: 0.30200002}
-  m_AnchoredPosition: {x: 10.5, y: -29.80008}
+  m_AnchoredPosition: {x: 10.5, y: -29.800095}
   m_SizeDelta: {x: 12, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1174078340
@@ -18019,7 +18174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2617749, y: 0.34628785}
-  m_AnchoredPosition: {x: -34.506042, y: -36.003662}
+  m_AnchoredPosition: {x: -34.506042, y: -36.003677}
   m_SizeDelta: {x: 43, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185876012
@@ -18329,7 +18484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.36861992, y: 0}
   m_AnchorMax: {x: 0.66346496, y: 0.358}
-  m_AnchoredPosition: {x: 9.5, y: -41.000153}
+  m_AnchoredPosition: {x: 9.5, y: -41.000168}
   m_SizeDelta: {x: 25, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200725048
@@ -19177,7 +19332,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.14117432, y: 0}
-  m_SizeDelta: {x: -22, y: -174.682}
+  m_SizeDelta: {x: -22, y: -272.8268}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1262677450
 MonoBehaviour:
@@ -20382,7 +20537,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -21900,7 +22055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33028895, y: 0.06640716}
   m_AnchorMax: {x: 0.52443576, y: 1}
-  m_AnchoredPosition: {x: -714.99994, y: 0.49999046}
+  m_AnchoredPosition: {x: -715, y: 0.49999046}
   m_SizeDelta: {x: 20, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1478541747
@@ -22401,7 +22556,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.23915741, y: 0.31362954}
-  m_AnchoredPosition: {x: -25.000305, y: -30.10019}
+  m_AnchoredPosition: {x: -25.000305, y: -30.100204}
   m_SizeDelta: {x: 42, y: 77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498450616
@@ -23508,11 +23663,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -23673,7 +23828,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: LYNCHTOP 9000
+  m_text: Maclaclantosh 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7154b441e457f6c48882c4021437d227, type: 2}
   m_sharedMaterial: {fileID: 21403735330438222, guid: 7154b441e457f6c48882c4021437d227,
@@ -25827,7 +25982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -17.583}
   m_AnchorMin: {x: 0.38110662, y: 0}
   m_AnchorMax: {x: 0.6454721, y: 0.31362954}
-  m_AnchoredPosition: {x: -7.43412, y: -54.715378}
+  m_AnchoredPosition: {x: -7.43412, y: -54.715363}
   m_SizeDelta: {x: 27, y: 77}
   m_Pivot: {x: 0.61725336, y: 0.199488}
 --- !u!114 &1712697290
@@ -26940,7 +27095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.583}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.2617749, y: 0.34628785}
-  m_AnchoredPosition: {x: -34.500366, y: -36}
+  m_AnchoredPosition: {x: -34.500366, y: -36.000015}
   m_SizeDelta: {x: 43, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1790809545
@@ -32151,14 +32306,14 @@ MonoBehaviour:
     spaceCount: 3
     wordCount: 4
     linkCount: 0
-    lineCount: 4
+    lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
