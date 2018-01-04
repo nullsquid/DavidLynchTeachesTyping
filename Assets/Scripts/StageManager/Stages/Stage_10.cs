@@ -9,6 +9,8 @@ public class Stage_10 : Stage {
 	public Animator animator;
     public Animator rHand;
     public Animator lHand;
+    public Animator blackFade;
+    public GameObject mainTextArea;
     public Camera mainCamera;
     bool coffeeBreak = false;
 	public void OnEnable() {
@@ -27,6 +29,7 @@ public class Stage_10 : Stage {
 
     public override void StartStage() {
         speechBubble.SetActive(false);
+        mainTextArea.SetActive(true);
         TextPrinter.instance.printText = GameObject.Find("MainText_10").GetComponent<TextMeshProUGUI>();
         StartCoroutine(ShowSpeechBubble());
 
@@ -72,18 +75,20 @@ public class Stage_10 : Stage {
         TextPrinter.instance.InvokePrint("<Great work ;0.07>{.4}<kiddo! ;0.07>{1}<How about ;0.07>{.2}<you reward yourself ;0.07>{.2}<with a coffee and a smoke? ;0.07>{4}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
         yield return new WaitForSeconds(9.5f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
         coffeeAndCigaretteBreak.SetActive(true);
+        mainTextArea.SetActive(false);
         yield return new WaitForSeconds(2.0f);
         TextPrinter.instance.onPrintComplete -= EndStage;
         //have to press a button to stop smoke break
         coffeeBreak = true;
         animator.SetBool("BreakTime", true);
-        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
-        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
-        mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
+        blackFade.SetTrigger("FadeIn");
+        //mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = true;
+        //mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().density = 0.3f;
+        //mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().speed = .04f;
         lHand.SetTrigger("FadeLong");
         rHand.SetTrigger("FadeLong");
-        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
 
 
 
