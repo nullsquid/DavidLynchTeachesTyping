@@ -35,7 +35,7 @@ public class Stage_2 : Stage {
         TextPrinter.instance.printText = GameObject.Find("MainText_2").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
         StartCoroutine(FadeEvent());
-        TextPrinter.instance.InvokePrint("<To begin, ;.07> {.6} <rest your fingers ;0.08> {.2} <on the \"Home Row\" ;0.08>{.2} <with your 'Left Index Finger ;0.08> {.45} <on the 'F' key ;0.07>{.4} <and your 'Right Index Finger' ;0.06>{0.5} <on the 'J' key\n\n;0.1>{1}", 0.08f);
+        TextPrinter.instance.InvokePrint("<To begin, ;.07> {.6} <rest your fingers ;0.08> {.2} <on the \"Home Row\" ;0.08>{.2} <with your 'Left Index Finger' ;0.08> {.45} <on the 'F' key ;0.07>{.4} <and your 'Right Index Finger' ;0.06>{0.5} <on the 'J' key\n\n;0.1>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_2");
     }
 	public override void StartStage(){
@@ -78,16 +78,16 @@ public class Stage_2 : Stage {
 	IEnumerator TextBlink(){
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
-			TextPrinter.instance.printText.text += "<color=yellow>(press space to continue)</color>";
+			TextPrinter.instance.printText.text += "<color=yellow>(press 'Space Bar' to continue)</color>";
 			yield return new WaitForSeconds (0.5f);
 			//} else {
 			scrollrect.enabled = false;
-			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press space to continue)</color>", string.Empty);
+			TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space Bar' to continue)</color>", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
 		}
-		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press space to continue)</color>", string.Empty);
+		TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("<color=yellow>(press 'Space Bar' to continue)</color>", string.Empty);
 
 	}
 
