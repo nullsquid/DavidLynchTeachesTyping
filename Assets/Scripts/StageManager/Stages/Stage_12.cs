@@ -56,7 +56,9 @@ public class Stage_12 : Stage {
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_12");
         yield return new WaitForSeconds(17.5f);
 		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("INTRO_2");
-        StageManager.instance.StartStage(0);
+        yield return new WaitForSeconds(2.0f);
+        Application.Quit();
+        //StageManager.instance.StartStage(0);
     }
 
 
