@@ -60,7 +60,8 @@ public class Stage_0 : Stage {
         creditText.SetActive(true);
         mainCamera.GetComponents<postVHSPro>()[1].enabled = false;
         TextPrinter.instance.ClearStartText();
-        if (hasBeenCompleted == false)
+		yield return new WaitForSeconds (1.5f);
+		if (hasBeenCompleted == false)
             TextPrinter.instance.InvokeStartPrint("press any key to begin", 0.05f);
         else if (hasBeenCompleted == true)
             TextPrinter.instance.InvokeStartPrint("press any key to begin\n\nto play in mirror mode, press 'm'", 0.05f);

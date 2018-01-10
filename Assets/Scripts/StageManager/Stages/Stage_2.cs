@@ -45,7 +45,7 @@ public class Stage_2 : Stage {
     }
 
     IEnumerator GlowEvent() {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         homeRow.SetTrigger("FadeIn");
         //yield return new WaitForSeconds(2.5f);
         //homeRow.SetTrigger("FadeOut");
