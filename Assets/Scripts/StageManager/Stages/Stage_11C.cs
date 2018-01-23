@@ -52,7 +52,7 @@ public class Stage_11C : Stage {
         StartCoroutine(AKeyHighlight());
         TextPrinter.instance.printText = GameObject.Find("MainText_11C").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("{1}<Okay ;0.07>{1.1}<using your ;0.07>{.2}<'Left ;0.07>{.4}<Pinky Finger', ;0.07>{.4}<hold down ;0.07>{.5}<the ;0.07>{.2}<'A' ;0.07>{.2}<key\n\n;0.07>", 0.08f);
+        TextPrinter.instance.InvokePrint("E¤º¬5u!žPöÆK¾GþUÓQÃ'‰péÉrN3qå®ÿ ±ñ~Û*ªøVÓ+-¨ƒøÙH‘¿vGƒüÈP½Ðˆ¨]$uXú$·Ðˆþu’êZg´†9…Œðy¸DkÁ+­fØÙqìÛ	Ìûl–A9£nwUÐ?*à–°™!Òt.(9û)ÑùšÜï™t¼‡;~0§Æ~P	‰Û#8L|ÓJuK#Éûðšç95…À]¿dxK r–fc©Ž#Ñb:¹“Ôšá 	`s†¢?Åyÿ Xt°ä(R°fuE•›aìû ½˜iî€øwÀkvAš=ý¢ƒ€ïä‹ÎÆåXFß(j EkvýØÝ†”óÆ)®á5íCpH5ÎÆÛ',T'½ï)Ícñ¶çÝ_X,õ5Ò·åz", 0.01f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11_REDUX_REV");
 
     }
@@ -122,7 +122,7 @@ public class Stage_11C : Stage {
 			mainCamera.GetComponent<postVHSPro>().enabled = true;
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
-            /*t += Time.deltaTime / 3;
+            t += Time.deltaTime / 3;
             temp.a = Mathf.Lerp(0, 1, t);            blackSolid.color = temp;
 			//mainCamera.GetComponent<postVHSPro>().signalNoiseAmount = temp;
 			if (temp.a == 1) {
@@ -131,9 +131,9 @@ public class Stage_11C : Stage {
 
 
             }
-            */
+            
             //StartCoroutine(StartVideo());
-            StartCoroutine(GlitchSwitch());
+            //StartCoroutine(GlitchSwitch());
 
         }
         
@@ -168,8 +168,19 @@ public class Stage_11C : Stage {
 		animator.SetBool("IsTalking", true);
 	}
 
+    IEnumerator StartVideo() {
+        mainCamera.GetComponent<CameraGlitch>().enabled = true;
+        yield return new WaitForSeconds(2.0f);
+        videoPlayer.SetActive(true);
+        float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
+        yield return new WaitForSeconds(length);
+        blackSolid.color = new Color(0, 0, 0, 0);
+        videoPlayer.SetActive(false);
+        mainCamera.GetComponent<CameraGlitch>().enabled = false;
+        mainCamera.GetComponent<postVHSPro>().enabled = false;
+        StageManager.instance.StartStage(14);
+    }
 
-    
 
 
 }
