@@ -64,7 +64,12 @@ public class Stage_11 : Stage {
         stageIsComplete = true;
 
     }
-
+    IEnumerator GlitchSwitch() {
+        mainCamera.GetComponent<CameraGlitch>().enabled = true;
+        yield return new WaitForSeconds(0.6f);
+        mainCamera.GetComponent<CameraGlitch>().enabled = false;
+        StageManager.instance.StartStage(12);
+    }
     IEnumerator TextBlink() {
         while (blink == true) {
             //if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
@@ -80,7 +85,7 @@ public class Stage_11 : Stage {
         TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
 
     }
-    IEnumerator KeyWasPressed() {
+    /*IEnumerator KeyWasPressed() {
         
         if (timesPressed == 0 && pressed == true) {
             temp.a = 0;
@@ -104,20 +109,21 @@ public class Stage_11 : Stage {
         }
         else if (timesPressed == 2 && temp.a == 1) {
             //StageManager.instance.StartStage(12);
-            StartCoroutine(StartVideo());
+            //StartCoroutine(StartVideo());
         }
         yield return null;
     }
     void InvokeNextPress() {
         StartCoroutine(KeyWasPressed());
     }
+    */
     void Update() {
         if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
-			mainCamera.GetComponent<postVHSPro>().enabled = true;
+			//mainCamera.GetComponent<postVHSPro>().enabled = true;
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
-            t += Time.deltaTime / 3;
+            /*t += Time.deltaTime / 3;
             temp.a = Mathf.Lerp(0, 1, t);            blackSolid.color = temp;
 			//mainCamera.GetComponent<postVHSPro>().signalNoiseAmount = temp;
 			if (temp.a == 1) {
@@ -126,12 +132,15 @@ public class Stage_11 : Stage {
 
 
             }
+            */
+            //StartCoroutine(StartVideo());
+            StartCoroutine(GlitchSwitch());
 
         }
         
 
 
-        else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
+        /*else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
 			mainCamera.GetComponent<postVHSPro> ().enabled = false;
             blink = false;
             //t -= Time.deltaTime / 3;
@@ -142,7 +151,7 @@ public class Stage_11 : Stage {
             TextPrinter.instance.InvokePrint("\n\nOkay now using your left pinky finger, hold down the 'A' key\n\n", 0.08f);
 
 
-        }
+        }*/
         
 
     }
@@ -160,19 +169,19 @@ public class Stage_11 : Stage {
 		animator.SetBool("IsTalking", true);
 	}
 
+
     IEnumerator StartVideo() {
         mainCamera.GetComponent<CameraGlitch>().enabled = true;
         yield return new WaitForSeconds(2.0f);
         videoPlayer.SetActive(true);
         float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
         yield return new WaitForSeconds(length);
-		blackSolid.color = new Color (0, 0, 0, 0);
-		videoPlayer.SetActive (false);
-		mainCamera.GetComponent<CameraGlitch> ().enabled = false;
+        blackSolid.color = new Color(0, 0, 0, 0);
+        videoPlayer.SetActive(false);
+        mainCamera.GetComponent<CameraGlitch>().enabled = false;
         mainCamera.GetComponent<postVHSPro>().enabled = false;
         StageManager.instance.StartStage(12);
     }
-    
 
 
 }

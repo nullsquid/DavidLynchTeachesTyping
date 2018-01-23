@@ -10,6 +10,7 @@ public class Stage_2 : Stage {
     public Animator lHand;
     public Animator wipe;
     public Animator homeRow;
+	public Animator keyboardWhite;
     public GameObject wipeObj;
 	bool blink = true;
 
@@ -31,13 +32,19 @@ public class Stage_2 : Stage {
         yield return new WaitForSeconds(1.4f);
         wipeObj.SetActive(false);
         yield return new WaitForSeconds(3);
-
+		//StartCoroutine (FadeHomeRow ());
         TextPrinter.instance.printText = GameObject.Find("MainText_2").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
         StartCoroutine(FadeEvent());
         TextPrinter.instance.InvokePrint("<To begin, ;.07> {.6} <rest your fingers ;0.08> {.2} <on the \"Home Row\" ;0.08>{.2} <with your 'Left Index Finger' ;0.08> {.45} <on the 'F' key ;0.07>{.4} <and your 'Right Index Finger' ;0.06>{0.5} <on the 'J' key\n\n;0.1>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_2");
     }
+
+	IEnumerator FadeHomeRow(){
+		yield return new WaitForSeconds (5.5f);
+		keyboardWhite.SetTrigger ("Fade");
+	}
+
 	public override void StartStage(){
 
         StartCoroutine(PixelWipeAndPlay());
@@ -54,6 +61,7 @@ public class Stage_2 : Stage {
     IEnumerator FadeEvent() {
         StartCoroutine(GlowEvent());
         yield return new WaitForSeconds(3.5f);
+		keyboardWhite.SetTrigger ("Fade");
         rHand.SetTrigger("FadeIn");
         lHand.SetTrigger("FadeIn");
 
