@@ -68,7 +68,7 @@ public class Stage_9 : Stage {
         }
         if(sequence.Count == 0) {
             minigamePanel.SetActive(false);
-            
+            TextPrinter.instance.ClearText();
             StartCoroutine(Evaluation());
         }
         //remove once done
@@ -104,9 +104,8 @@ public class Stage_9 : Stage {
         mainText.SetActive(true);
         portrait.SetActive(true);
         mainScrollBar.value = 0;
-        TextPrinter.instance.ClearText();
-        TextPrinter.instance.InvokePrint("\n\nEvaluating...", 0.1f);
-        yield return new WaitForSeconds(1.5f);
+        //TextPrinter.instance.ClearText();
+        yield return new WaitForSeconds(2f);
         StageManager.instance.StartStage(10);
     }
 }
