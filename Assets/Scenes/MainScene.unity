@@ -6803,6 +6803,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39107156c50f8d418c46580be4baea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: a32cf49d3870418499ef86f78a98e374, type: 3}
+  m_Material: {fileID: 0}
   density: 1
   speed: 3
 --- !u!1 &431803002
@@ -23176,7 +23178,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33028895, y: 0.06640716}
   m_AnchorMax: {x: 0.52443576, y: 1}
-  m_AnchoredPosition: {x: -1410.0004, y: 0.49999046}
+  m_AnchoredPosition: {x: -1410.0002, y: 0.49999046}
   m_SizeDelta: {x: 20, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1478541747
