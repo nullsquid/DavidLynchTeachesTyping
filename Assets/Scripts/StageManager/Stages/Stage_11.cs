@@ -47,6 +47,8 @@ public class Stage_11 : Stage {
     }
 
     public override void StartStage() {
+		GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeSoundEffect ("BLOOP_GOOD_1");
+
         blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
         StartCoroutine(PinkyGlow());
         StartCoroutine(AKeyHighlight());

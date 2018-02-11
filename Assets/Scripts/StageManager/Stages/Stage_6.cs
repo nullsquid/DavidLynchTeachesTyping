@@ -80,7 +80,7 @@ public class Stage_6 : Stage {
         StartCoroutine(HandFade());
         yield return new WaitForSeconds(1);
 		animator.SetBool ("IsTalking", true);
-        TextPrinter.instance.InvokePrint("{1}<Wow! ;0.08>{.5}<Amazing! ;0.08>{.5}<Beautiful. ;0.08>{.2}<We are doing Beautiful work here. ;0.06>{.5}<That was just great! ;0.08>{.7}<Let's ;0.08>{.3}<move ;0.08>{.3}<on.\n\n;0.08>{1}", 0.08f);
+		TextPrinter.instance.InvokePrint("{1}<Wow! ;0.08>{.5}<Amazing! ;0.08>{.5}<Beautiful. ;0.08>{.2}<We're doing ;0.04><Beautiful work here. ;0.06>{.5}<That was just great! ;0.08>{.7}<Let's ;0.08>{.3}<move ;0.08>{.3}<on.\n\n;0.08>{1}", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_6");
 
     }
