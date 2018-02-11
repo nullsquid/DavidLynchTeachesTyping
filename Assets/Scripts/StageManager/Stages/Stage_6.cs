@@ -7,6 +7,7 @@ public class Stage_6 : Stage {
     public ScrollRect scrollrect;
 	public Animator animator;
     public Animator handAnimator;
+    public Animator spaceGlow;
 	bool blink = true;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -53,6 +54,7 @@ public class Stage_6 : Stage {
 	}
 
 	IEnumerator TextBlink(){
+        spaceGlow.SetTrigger("Glow");
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "<color=yellow>(press 'Space Bar' to continue)</color>";

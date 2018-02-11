@@ -11,6 +11,7 @@ public class Stage_2 : Stage {
     public Animator wipe;
     public Animator homeRow;
 	public Animator keyboardWhite;
+    public Animator spaceKeyGlow;
     public GameObject wipeObj;
 	bool blink = true;
 
@@ -29,6 +30,7 @@ public class Stage_2 : Stage {
     IEnumerator PixelWipeAndPlay() {
         wipeObj.SetActive(true);
         wipe.SetTrigger("Wipe");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("PIXEL_WIPE");
         yield return new WaitForSeconds(1.4f);
         wipeObj.SetActive(false);
         yield return new WaitForSeconds(3);
@@ -84,6 +86,7 @@ public class Stage_2 : Stage {
 	}
 
 	IEnumerator TextBlink(){
+        spaceKeyGlow.SetTrigger("Glow");
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "<color=yellow>(press 'Space Bar' to continue)</color>";
