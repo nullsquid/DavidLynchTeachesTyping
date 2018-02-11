@@ -60,7 +60,7 @@ public class Stage_0 : Stage {
         creditText.SetActive(true);
         mainCamera.GetComponents<postVHSPro>()[1].enabled = false;
         TextPrinter.instance.ClearStartText();
-		yield return new WaitForSeconds (1.5f);
+		yield return new WaitForSeconds (3.5f);
 		if (hasBeenCompleted == false)
             TextPrinter.instance.InvokeStartPrint("press any key to begin", 0.05f);
         else if (hasBeenCompleted == true)
@@ -94,8 +94,10 @@ public class Stage_0 : Stage {
 
 	void Update(){
 		if (stageIsComplete == true && Input.anyKeyDown) {
-			//StageManager.instance.StartStage (1);
-			StartCoroutine(StartFakeLoadIn());
+            //StageManager.instance.StartStage (1);
+            GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_START_1");
+
+            StartCoroutine(StartFakeLoadIn());
 		}
 	}
 

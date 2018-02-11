@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using TOZ;
+
 public class Stage_10 : Stage {
     public GameObject speechBubble;
     public GameObject coffeeAndCigaretteBreak;
@@ -48,7 +48,6 @@ public class Stage_10 : Stage {
         }
         if(coffeeBreak == true && Input.anyKeyDown) {
             GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("JAZZU");
-            mainCamera.GetComponent<TOZ.ImageEffects.PP_Amnesia>().enabled = false;
             StageManager.instance.StartStage(11);
         }
     }
