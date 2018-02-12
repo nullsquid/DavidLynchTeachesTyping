@@ -18,7 +18,7 @@ public class Stage_11C : Stage {
     bool blink = true;
 	public Animator animator;
     int timesPressed = 0;
-    Color temp;
+	Color temp = new Color(1, 1, 1, 0);
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
 			TextPrinter.instance.onPrintComplete += EndStage;
@@ -47,12 +47,13 @@ public class Stage_11C : Stage {
     }
 
     public override void StartStage() {
+		GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeAmbientAudio ("STATIC");
         blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
         StartCoroutine(PinkyGlow());
         StartCoroutine(AKeyHighlight());
         TextPrinter.instance.printText = GameObject.Find("MainText_11C").GetComponent<TextMeshProUGUI>();
         animator.SetBool("IsTalking", true);
-        TextPrinter.instance.InvokePrint("E¤º¬5u!žPöÆK¾GþUÓQÃ'‰péÉrN3qå®ÿ ±ñ~Û*ªøVÓ+-¨ƒøÙH‘¿vGƒüÈP½Ðˆ¨]$uXú$·Ðˆþu’êZg´†9…Œðy¸DkÁ+­fØÙqìÛ	Ìûl–A9£nwUÐ?*à–°™!Òt.(9û)ÑùšÜï™t¼‡;~0§Æ~P	‰Û#8L|ÓJuK#Éûðšç95…À]¿dxK r–fc©Ž#Ñb:¹“Ôšá 	`s†¢?Åyÿ Xt°ä(R°fuE•›aìû ½˜iî€øwÀkvAš=ý¢ƒ€ïä‹ÎÆåXFß(j EkvýØÝ†”óÆ)®á5íCpH5ÎÆÛ',T'½ï)Ícñ¶çÝ_X,õ5Ò·åz", 0.01f);
+        TextPrinter.instance.InvokePrint("E¤º¬5u!žPöÆK¾GþU‰péÉrN3qå®ÿ ±ñ~Û*ªøVÓ+-", 0.1f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_11_REDUX_REV");
 
     }
@@ -85,37 +86,8 @@ public class Stage_11C : Stage {
         TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace("<color=yellow>(hold down 'A' key to continue)</color>", string.Empty);
 
     }
-    IEnumerator KeyWasPressed() {
-        
-        if (timesPressed == 0 && pressed == true) {
-            temp.a = 0;
-            blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
 
-            StageManager.instance.StartStage(11);
-            //Invoke("KeyWasPressed", 0);
-            yield return new WaitForSeconds(1);
-            timesPressed++;
-            pressed = false;
-        }
-        else if (timesPressed == 1 && pressed == true) {
-            temp.a = 0;
-            blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
 
-            StageManager.instance.StartStage(11);
-            yield return new WaitForSeconds(1);
-            timesPressed++;
-            //Invoke("KeyWasPressed", 0);
-            pressed = false;
-        }
-        else if (timesPressed == 2 && temp.a == 1) {
-            //StageManager.instance.StartStage(12);
-            //StartCoroutine(StartVideo());
-        }
-        yield return null;
-    }
-    void InvokeNextPress() {
-        StartCoroutine(KeyWasPressed());
-    }
     void Update() {
         if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
@@ -123,14 +95,15 @@ public class Stage_11C : Stage {
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
             t += Time.deltaTime / 3;
-            temp.a = Mathf.Lerp(0, 1, t);            blackSolid.color = temp;
-			//mainCamera.GetComponent<postVHSPro>().signalNoiseAmount = temp;
+            temp.a = Mathf.Lerp(0, 1, t);            
+			blackSolid.color = temp;
 			if (temp.a == 1) {
-                Debug.Log(timesPressed);
+                //Debug.Log(timesPressed);
                 StartCoroutine(StartVideo());
 
 
             }
+
             
             //StartCoroutine(StartVideo());
             //StartCoroutine(GlitchSwitch());
@@ -151,6 +124,11 @@ public class Stage_11C : Stage {
 
 
         }
+		if (Input.GetKeyDown (KeyCode.A)) {
+			GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeAmbientAudio ("SIGNAL");
+		} else {
+			GameObject.FindObjectOfType<DialogueAudioHandler> ().StopAudio ("SIGNAL");
+		}
         
 
     }
@@ -169,15 +147,21 @@ public class Stage_11C : Stage {
 	}
 
     IEnumerator StartVideo() {
-        mainCamera.GetComponent<CameraGlitch>().enabled = true;
-        yield return new WaitForSeconds(2.0f);
+        //mainCamera.GetComponent<CameraGlitch>().enabled = true;
+
+        //yield return new WaitForSeconds(2.0f);
+		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("STATIC");
+		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("NIGHTMARE_STATIC");
+
+		mainCamera.GetComponent<Camera>().enabled = false;
         videoPlayer.SetActive(true);
         float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
         yield return new WaitForSeconds(length);
-        blackSolid.color = new Color(0, 0, 0, 0);
+        blackSolid.color = new Color(1, 1, 1, 0);
         videoPlayer.SetActive(false);
-        mainCamera.GetComponent<CameraGlitch>().enabled = false;
+        //mainCamera.GetComponent<CameraGlitch>().enabled = false;
         mainCamera.GetComponent<postVHSPro>().enabled = false;
+		mainCamera.GetComponent<Camera> ().enabled = true;
         StageManager.instance.StartStage(14);
     }
 

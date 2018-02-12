@@ -8437,7 +8437,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.059143066, y: 0}
-  m_SizeDelta: {x: -22, y: -267.95193}
+  m_SizeDelta: {x: -22, y: 0}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &514536990
 MonoBehaviour:
@@ -8547,11 +8547,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14759,7 +14759,7 @@ MonoBehaviour:
   - {fileID: 2048333396}
   - {fileID: 1305517839}
   testingMode: 1
-  stageNumber: 14
+  stageNumber: 13
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -14808,6 +14808,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fca138ccd8851824f9b6eb7cf3900b48, type: 3}
   - {fileID: 8300000, guid: b5bb1ca335e662b4990d9a9cfcbece14, type: 3}
   - {fileID: 8300000, guid: 71651381eebacb74a8a535b1ca5710af, type: 3}
+  - {fileID: 8300000, guid: 26614ba367fc3764da6879117a1512ee, type: 3}
+  - {fileID: 8300000, guid: d753ca6c3e291aa4d95e10a444d3d129, type: 3}
+  - {fileID: 8300000, guid: aee839902e3b95843b28366642365773, type: 3}
   notes: []
   channelPanel: {fileID: 0}
 --- !u!1 &916373500
@@ -16428,6 +16431,7 @@ GameObject:
   - component: {fileID: 1001564949}
   - component: {fileID: 1001564952}
   - component: {fileID: 1001564951}
+  - component: {fileID: 1001564950}
   m_Layer: 5
   m_Name: BlackFade
   m_TagString: Untagged
@@ -16453,6 +16457,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1001564950
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001564948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61f8ff6f8a3cadc4ba24c83e4bd4e703, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1001564951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16472,7 +16493,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 41d962094c3706e4886b509beead2e84, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fee3edb0ae0344e40bba88bb334824a1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22202,7 +22223,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22448,7 +22469,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1331060598}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c463be37d418ebe4faeeb3ecd03a6ece, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6172050a3ef8b31408d28e122c775d56, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera: {fileID: 1501888605}
   m_TargetTexture: {fileID: 0}
@@ -24531,7 +24552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33028895, y: 0.06640716}
   m_AnchorMax: {x: 0.52443576, y: 1}
-  m_AnchoredPosition: {x: -1410.0009, y: 0.49999046}
+  m_AnchoredPosition: {x: -1409.9957, y: 0.49999046}
   m_SizeDelta: {x: 20, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1478541747
@@ -27683,7 +27704,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 14
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -27710,14 +27731,14 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -34688,7 +34709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2048333392
 RectTransform:
   m_ObjectHideFlags: 0

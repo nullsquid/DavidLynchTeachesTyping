@@ -47,6 +47,7 @@ public class Stage_11B : Stage {
     }
 
     public override void StartStage() {
+		GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeAmbientAudio ("NIGHTMARE_STATIC");
         //mainCamera.GetComponent<CameraGlitch>().enabled = false;
         blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
         StartCoroutine(PinkyGlow());
