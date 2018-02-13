@@ -13,12 +13,8 @@ public class Stage_11B : Stage {
     public Animator keyboard;
     public Animator aKey;
     public Animator pinkyGlow;
-    bool pressed = false;
-    float t = 0;
     bool blink = true;
     public Animator animator;
-    int timesPressed = 0;
-    Color temp;
     public void OnEnable() {
         if (TextPrinter.instance != null) {
             TextPrinter.instance.onPrintComplete += EndStage;

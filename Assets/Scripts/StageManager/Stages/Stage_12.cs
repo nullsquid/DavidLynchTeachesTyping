@@ -65,8 +65,6 @@ public class Stage_12 : Stage {
 
 	IEnumerator InvokeCredits(){
         textObj.SetActive(false);
-        //scrollBar.SetActive(false);
-        //credits.SetActive (true);
 		design.SetActive (true);
 		yield return new WaitForSeconds (2.5f);
 		design.SetActive (false);
