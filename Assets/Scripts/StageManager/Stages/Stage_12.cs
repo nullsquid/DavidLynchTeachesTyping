@@ -8,7 +8,7 @@ public class Stage_12 : Stage {
     public Camera mainCamera;
     public GameObject textObj;
     public GameObject scrollBar;
-	public GameObject credits;
+	//public GameObject credits;
 	public GameObject design;
 	public GameObject writing;
 	public GameObject coding;
@@ -65,8 +65,8 @@ public class Stage_12 : Stage {
 
 	IEnumerator InvokeCredits(){
         textObj.SetActive(false);
-        scrollBar.SetActive(false);
-        credits.SetActive (true);
+        //scrollBar.SetActive(false);
+        //credits.SetActive (true);
 		design.SetActive (true);
 		yield return new WaitForSeconds (2.5f);
 		design.SetActive (false);
