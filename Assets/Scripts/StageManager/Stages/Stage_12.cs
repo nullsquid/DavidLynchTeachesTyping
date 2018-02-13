@@ -6,6 +6,8 @@ using UnityEngine.Video;
 public class Stage_12 : Stage {
     public GameObject videoPlayer;
     public Camera mainCamera;
+    public GameObject textObj;
+    public GameObject scrollBar;
 	public GameObject credits;
 	public GameObject design;
 	public GameObject writing;
@@ -62,7 +64,9 @@ public class Stage_12 : Stage {
 	}
 
 	IEnumerator InvokeCredits(){
-		credits.SetActive (true);
+        textObj.SetActive(false);
+        scrollBar.SetActive(false);
+        credits.SetActive (true);
 		design.SetActive (true);
 		yield return new WaitForSeconds (2.5f);
 		design.SetActive (false);
