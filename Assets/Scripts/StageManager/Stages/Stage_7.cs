@@ -25,7 +25,9 @@ public class Stage_7 : Stage {
 	}
 
     public override void StartStage() {
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_START_1");
         TextPrinter.instance.printText = GameObject.Find("MainText_7").GetComponent<TextMeshProUGUI>();
+        StartCoroutine(StartBugSound());
         StartCoroutine(InvokeBugText());
         
 
@@ -35,12 +37,9 @@ public class Stage_7 : Stage {
         stageIsComplete = true;
     }
 
-    void Update() {
-        /*if (stageIsComplete == true && Input.GetKeyDown(KeyCode.F)) {
-            TextPrinter.instance.onPrintComplete -= EndStage;
-            //play animation?
-            StageManager.instance.StartStage(4);
-        }*/
+    IEnumerator StartBugSound() {
+        yield return new WaitForSeconds(4.5f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("BUGGLE");
     }
 
     IEnumerator InvokeBugSlideIn() {
@@ -82,6 +81,7 @@ public class Stage_7 : Stage {
         TextPrinter.instance.InvokePrint("<Place your 'Left ;0.07>{.2}<Ring Finger' ;0.07>{.5}<in the undulating bug ;0.07>\n\n", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_7B");
         yield return new WaitForSeconds(18f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("BUGGLE");
         StageManager.instance.StartStage(8);
 
     }

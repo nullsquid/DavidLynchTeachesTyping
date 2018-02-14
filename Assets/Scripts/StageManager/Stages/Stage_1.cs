@@ -140,9 +140,11 @@ public class Stage_1 : Stage {
     }
 
 	IEnumerator FakeLoadIn(){
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("START_BEEP_1");
         yield return new WaitForSeconds(loadInTime);
         blackBox.SetActive(false);
-		yield return new WaitForSeconds (loadInTime);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("START_BEEP_2");
+        yield return new WaitForSeconds (loadInTime);
 		lynch.SetActive (true);
 		yield return new WaitForSeconds(loadInTime * 4);
 		textBox.SetActive(true);

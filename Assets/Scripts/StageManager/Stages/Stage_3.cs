@@ -36,6 +36,7 @@ public class Stage_3 : Stage {
     }
 
     public override void StartStage(){
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("BLOOP_START_1");
         StartCoroutine(FadeAndStartStage());
 
     }
