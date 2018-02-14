@@ -24,8 +24,10 @@ public class Stage_8 : Stage {
 	}
     
     public override void StartStage() {
+        errorMessage.SetActive(false);
+
         //TextPrinter.instance.printText = GameObject.Find("MainText_8").GetComponent<TextMeshProUGUI>();
-        TextPrinter.instance.printText = GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>();
+        //TextPrinter.instance.printText = GameObject.Find("ErrorText").GetComponent<TextMeshProUGUI>();
         StartCoroutine(InvokeErrorText());
 
 
@@ -74,11 +76,16 @@ public class Stage_8 : Stage {
 	}
 
     IEnumerator InvokeErrorText() {
+
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("GLITCH_SHORT");
+
         mainCamera.GetComponent<CameraGlitch>().enabled = true;
         //TextPrinter.instance.InvokePrint("<color=red>ERROR\n\nERROR\n\nERROR\n\n</color>", 0.001f);
 
         yield return new WaitForSeconds(1.5f);
         mainCamera.GetComponent<CameraGlitch>().enabled = false;
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("ERROR");
+
         errorMessage.SetActive(true);
         //yield return new WaitForSeconds(1.0f);
         //errorMessage.SetActive(false);

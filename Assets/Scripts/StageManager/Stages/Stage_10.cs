@@ -41,8 +41,8 @@ public class Stage_10 : Stage {
     }
 
     void Update() {
-        if (stageIsComplete == true && Input.anyKeyDown) {
-            
+        if (stageIsComplete == true) {
+            StopAnim();
             //play animation?
             //StageManager.instance.StartStage(11);
         }
@@ -54,6 +54,7 @@ public class Stage_10 : Stage {
     IEnumerator ShowSpeechBubble() {
         yield return new WaitForSeconds(1f);
         speechBubble.SetActive(true);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("FANFARE");
         yield return new WaitForSeconds(1.5f);
         speechBubble.SetActive(false);
         StartCoroutine(WaitForSpeechBubble());
@@ -71,9 +72,9 @@ public class Stage_10 : Stage {
 		animator.SetBool ("IsTalking", false);
 		Invoke ("StopAnim", GameObject.FindObjectOfType<DialogueAudioHandler> ().soundEffects ["STAGE_10"].length);
         AnimatorUnpause();
-        TextPrinter.instance.InvokePrint("<Great work ;0.07>{.4}<kiddo! ;0.07>{1}<How about ;0.07>{.2}<you reward yourself ;0.07>{.2}<with a coffee and a smoke? ;0.07>{4}", 0.08f);
+        TextPrinter.instance.InvokePrint("<Great work ;0.07>{.4}<kiddo! ;0.07>{1}<How about ;0.07>{.2}<you reward yourself ;0.07>{.2}<with a coffee and a smoke? ;0.07>", 0.08f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_10");
-        yield return new WaitForSeconds(9.5f);
+        yield return new WaitForSeconds(11f);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("JAZZU");
         coffeeAndCigaretteBreak.SetActive(true);
         mainTextArea.SetActive(false);
