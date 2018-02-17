@@ -84,6 +84,7 @@ public class Stage_11B : Stage {
     }
 
     IEnumerator GlitchSwitch() {
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("GLITCH_ROUGH");
         mainCamera.GetComponent<CameraGlitch>().enabled = true;
         yield return new WaitForSeconds(0.6f);
         mainCamera.GetComponent<CameraGlitch>().enabled = false;
