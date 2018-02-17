@@ -10,6 +10,8 @@ public class Stage_10 : Stage {
     public Animator rHand;
     public Animator lHand;
     public Animator blackFade;
+    public Animator progressBar;
+    public GameObject evaluation;
     public GameObject mainTextArea;
     public Camera mainCamera;
     bool coffeeBreak = false;
@@ -28,6 +30,7 @@ public class Stage_10 : Stage {
 	}
 
     public override void StartStage() {
+        evaluation.SetActive(true);
         speechBubble.SetActive(false);
         mainTextArea.SetActive(true);
         TextPrinter.instance.printText = GameObject.Find("MainText_10").GetComponent<TextMeshProUGUI>();
@@ -52,7 +55,8 @@ public class Stage_10 : Stage {
         }
     }
     IEnumerator ShowSpeechBubble() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2.5f);
+        evaluation.SetActive(false);
         speechBubble.SetActive(true);
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("FANFARE");
         yield return new WaitForSeconds(1.5f);
