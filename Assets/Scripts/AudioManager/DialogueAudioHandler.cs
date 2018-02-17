@@ -17,7 +17,9 @@ public class DialogueAudioHandler : MonoBehaviour {
 
     }
 
-
+    public void FadeOutSound(string soundName, float fadeTime) {
+        AudioManager.Instance.StopSound(soundName, fadeTime);
+    }
     public void InvokeSoundEffect(string soundName, float vol = 1){
 		AudioManager.Instance.PlaySoundAtPoint (soundEffects [soundName], gameObject, 1, volume);
 	}

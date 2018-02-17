@@ -175,7 +175,6 @@ public class AudioManager : MonoBehaviour {
     }
 
     
-
     #region Fading Coroutines
     IEnumerator CrossFade(string nameOfSoundToFade, AudioSource fadeInSource, float fadeTime, float volume)
     {

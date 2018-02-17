@@ -45,7 +45,8 @@ public class Stage_11C : Stage {
     }
 
     public override void StartStage() {
-		GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeAmbientAudio ("STATIC");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeAmbientAudio("ERROR_STATIC");
+        GameObject.FindObjectOfType<DialogueAudioHandler> ().InvokeAmbientAudio ("STATIC");
         blackSolid.color = new Color(blackSolid.color.r, blackSolid.color.g, blackSolid.color.b, 0);
         StartCoroutine(PinkyGlow());
         StartCoroutine(AKeyHighlight());
@@ -148,10 +149,17 @@ public class Stage_11C : Stage {
         //mainCamera.GetComponent<CameraGlitch>().enabled = true;
 
         //yield return new WaitForSeconds(2.0f);
-		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("STATIC");
-		GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("NIGHTMARE_STATIC");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().FadeOutSound("ERROR_STATIC_StageManager", 1.0f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().FadeOutSound("STATIC_StageManager", .50f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().FadeOutSound("NIGHTMARE_STATIC_StageManager", .50f);
+        GameObject.FindObjectOfType<DialogueAudioHandler>().FadeOutSound("STAGE_11_REDUX_REV_StageManager", 1.0f);
 
-		mainCamera.GetComponent<Camera>().enabled = false;
+
+        //GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("STATIC");
+        //GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("NIGHTMARE_STATIC");
+        //GameObject.FindObjectOfType<DialogueAudioHandler>().
+
+        mainCamera.GetComponent<Camera>().enabled = false;
         videoPlayer.SetActive(true);
         float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
         yield return new WaitForSeconds(length);
