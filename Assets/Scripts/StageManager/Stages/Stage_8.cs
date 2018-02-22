@@ -60,6 +60,7 @@ public class Stage_8 : Stage {
 	}
 
 	IEnumerator TextBlink(){
+		
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
 			TextPrinter.instance.printText.text += "(press 'Space Bar' to continue)";
