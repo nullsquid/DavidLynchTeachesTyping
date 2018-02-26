@@ -30,6 +30,8 @@ public class Stage_2 : Stage {
     IEnumerator PixelWipeAndPlay() {
         wipeObj.SetActive(true);
         wipe.SetTrigger("Wipe");
+        GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("PIXEL_WIPE");
+
         //GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("PIXEL_WIPE");
         yield return new WaitForSeconds(1.4f);
         wipeObj.SetActive(false);
