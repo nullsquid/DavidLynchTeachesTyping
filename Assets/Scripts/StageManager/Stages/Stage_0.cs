@@ -25,7 +25,7 @@ public class Stage_0 : Stage {
 	}
 
     private void Start() {
-        
+		Cursor.visible = false;
     }
     public void PlayIntro() {
         startText.SetActive(false);
