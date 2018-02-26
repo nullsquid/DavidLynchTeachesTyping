@@ -7,6 +7,7 @@ public class Stage_8 : Stage {
 	public Animator animator;
     public Camera mainCamera;
     public GameObject errorMessage;
+    public TextMeshProUGUI errorText;
 	bool blink = true;
     public ScrollRect scrollrect;
 	public void OnEnable() {
@@ -63,11 +64,11 @@ public class Stage_8 : Stage {
 		
 		while (blink == true) {
 			//if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
-			TextPrinter.instance.printText.text += "(press 'Space Bar' to continue)";
+			errorText.text += "(press 'Space Bar' to continue)";
 			yield return new WaitForSeconds (0.5f);
             //} else {
             scrollrect.enabled = false;
-            TextPrinter.instance.printText.text = TextPrinter.instance.printText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
+            errorText.text = errorText.text.Replace ("(press 'Space Bar' to continue)", string.Empty);
 			yield return new WaitForSeconds (0.5f);
 			//}
 
