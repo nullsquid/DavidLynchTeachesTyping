@@ -63,7 +63,6 @@ public class Stage_11 : Stage {
         StartCoroutine(TextBlink());
 		//TextPrinter.instance.printText.text += "\n\n<color=yellow>hold down 'A' key to continue</color>";
         animator.SetBool("IsTalking", false);
-        stageIsComplete = true;
 
     }
     IEnumerator GlitchSwitch() {
@@ -74,6 +73,9 @@ public class Stage_11 : Stage {
         StageManager.instance.StartStage(12);
     }
     IEnumerator TextBlink() {
+        yield return new WaitForSeconds(1.0f);
+        stageIsComplete = true;
+
         while (blink == true) {
             //if (!TextPrinter.instance.printText.text.Contains ("<color=yellow>(press any key to continue)</color>")) {
             TextPrinter.instance.printText.text += "<color=yellow>(hold down 'A' key to continue)</color>";

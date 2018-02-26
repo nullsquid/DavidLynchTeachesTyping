@@ -14231,7 +14231,7 @@ MonoBehaviour:
   - {fileID: 2048333396}
   - {fileID: 1305517839}
   testingMode: 1
-  stageNumber: 8
+  stageNumber: 11
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -15775,7 +15775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 228.47797}
+  m_AnchoredPosition: {x: 0, y: 228.47795}
   m_SizeDelta: {x: 0, y: 456.95648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &991563553
