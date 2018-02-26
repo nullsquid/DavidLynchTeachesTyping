@@ -90,7 +90,7 @@ public class Stage_11C : Stage {
     void Update() {
         if (stageIsComplete == true && Input.GetKey(KeyCode.A)) {
             //StageManager.instance.StartStage (2);
-			mainCamera.GetComponent<postVHSPro>().enabled = true;
+			//mainCamera.GetComponent<postVHSPro>().enabled = true;
             TextPrinter.instance.onPrintComplete -= EndStage;
             //StageManager.instance.StartStage(3);
             t += Time.deltaTime / 3;
@@ -112,7 +112,6 @@ public class Stage_11C : Stage {
 
 
         else if (stageIsComplete == true && Input.GetKeyUp(KeyCode.A) && t < 1) {
-			mainCamera.GetComponent<postVHSPro> ().enabled = false;
             blink = false;
             //t -= Time.deltaTime / 3;
             t = 0;
@@ -145,6 +144,17 @@ public class Stage_11C : Stage {
 		animator.SetBool("IsTalking", true);
 	}
 
+    
+    IEnumerator FadeAndKillCamera() {
+        yield return new WaitForEndOfFrame();
+        
+        t += Time.deltaTime / 3;
+        temp.a = Mathf.Lerp(1, 0, t);
+        blackSolid.color = temp;
+        yield return new WaitForSeconds(1.0f);
+        mainCamera.GetComponent<Camera>().enabled = false;
+
+    }
     IEnumerator StartVideo() {
         //mainCamera.GetComponent<CameraGlitch>().enabled = true;
 
@@ -158,8 +168,8 @@ public class Stage_11C : Stage {
         //GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("STATIC");
         //GameObject.FindObjectOfType<DialogueAudioHandler>().StopAudio("NIGHTMARE_STATIC");
         //GameObject.FindObjectOfType<DialogueAudioHandler>().
-
-        mainCamera.GetComponent<Camera>().enabled = false;
+        StartCoroutine(FadeAndKillCamera());
+        yield return new WaitForEndOfFrame();
         videoPlayer.SetActive(true);
         float length = (float)videoPlayer.GetComponent<VideoPlayer>().clip.length;
         yield return new WaitForSeconds(length);
