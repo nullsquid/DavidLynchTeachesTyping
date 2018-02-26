@@ -16,6 +16,7 @@ public class Stage_12 : Stage {
 	public GameObject art;
 	public GameObject ui;
 	public GameObject production;
+	public GameObject otherMusic;
 	public GameObject thankyou;
 	bool canExit = false;
 	//might need to fix this up some
@@ -77,6 +78,9 @@ public class Stage_12 : Stage {
 		music.SetActive (true);
 		yield return new WaitForSeconds (2.5f);
 		music.SetActive (false);
+		otherMusic.SetActive (true);
+		yield return new WaitForSeconds (2.5f);
+		otherMusic.SetActive (false);
 		art.SetActive (true);
 		yield return new WaitForSeconds (2.5f);
 		art.SetActive (false);

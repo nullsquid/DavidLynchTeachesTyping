@@ -59,11 +59,11 @@ public class Stage_9 : Stage {
     }
     void Update() {
         if(Input.GetKeyDown(KeyCode.F) && sequence[0] == "F") {
-            gameScrollBar.value = gameScrollBar.value + 0.13f;
+            gameScrollBar.value = gameScrollBar.value + 0.115f;
             sequence.RemoveAt(0);
         }
         if (Input.GetKeyDown(KeyCode.J) && sequence[0] == "J") {
-            gameScrollBar.value = gameScrollBar.value + 0.13f;
+            gameScrollBar.value = gameScrollBar.value + 0.115f;
             sequence.RemoveAt(0);
         }
         if(sequence.Count == 0) {
