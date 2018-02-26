@@ -82,6 +82,7 @@ public class Stage_9 : Stage {
         GameObject.FindObjectOfType<DialogueAudioHandler>().InvokeSoundEffect("STAGE_9");
         yield return new WaitForSeconds(8f);
         animator.SetBool("IsTalking", false);
+        yield return new WaitForSeconds(2f);
         mainText.SetActive(false);
         seperator.SetActive(true);
         minigamePanel.SetActive(true);
