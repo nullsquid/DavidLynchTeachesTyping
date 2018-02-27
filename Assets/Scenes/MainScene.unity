@@ -1321,7 +1321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &66877175
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3761,7 +3761,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5265,11 +5265,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -7896,11 +7896,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9996,11 +9996,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -14385,8 +14385,8 @@ MonoBehaviour:
   - {fileID: 234864594}
   - {fileID: 2048333396}
   - {fileID: 1305517839}
-  testingMode: 0
-  stageNumber: 14
+  testingMode: 1
+  stageNumber: 9
 --- !u!4 &910334499
 Transform:
   m_ObjectHideFlags: 0
@@ -18012,7 +18012,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0491333, y: 0.000015258789}
-  m_SizeDelta: {x: -22, y: -178.1939}
+  m_SizeDelta: {x: -22, y: 0}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1095708061
 MonoBehaviour:
@@ -18122,11 +18122,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -19712,7 +19712,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b361c6833b5324b43ad323ce88f6d07c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2952837b02a4c674fabc0d21503fe354, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21033,7 +21033,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.14117432, y: 0}
-  m_SizeDelta: {x: -22, y: 0}
+  m_SizeDelta: {x: -22, y: -178.64774}
   m_Pivot: {x: 0.000000029802322, y: 0.99999994}
 --- !u!114 &1262677450
 MonoBehaviour:
@@ -21143,11 +21143,11 @@ MonoBehaviour:
     lineCount: 0
     pageCount: 0
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -21577,7 +21577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305517838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24093,7 +24093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.33028895, y: 0.06640716}
   m_AnchorMax: {x: 0.52443576, y: 1}
-  m_AnchoredPosition: {x: -1409.9832, y: 0.49999046}
+  m_AnchoredPosition: {x: -1409.981, y: 0.49999046}
   m_SizeDelta: {x: 20, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1478541747
@@ -26448,7 +26448,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -31015,7 +31015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1885561934
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31066,6 +31066,7 @@ MonoBehaviour:
   JPrefab: {fileID: 1519796745054710, guid: 54a10e30ecbdbc140991480390ba2c4c, type: 2}
   FPrefab: {fileID: 1143454868406188, guid: 5706359300f06884fb6770d483ac1b35, type: 2}
   playSpace: {fileID: 0}
+  minigameWindow: {fileID: 1162520706}
   animator: {fileID: 1476093376}
   sequence:
   - F
@@ -31103,6 +31104,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  TestSlides:
+  - {fileID: 21300000, guid: 2952837b02a4c674fabc0d21503fe354, type: 3}
+  - {fileID: 21300000, guid: 9b6b2a1c620bfc64f8d6ea27bf9558ce, type: 3}
+  - {fileID: 21300000, guid: 953beea3eade297459204a1d8fba4003, type: 3}
+  - {fileID: 21300000, guid: 2f51e670ccc0fe742b08f4c52dcf21f1, type: 3}
+  - {fileID: 21300000, guid: 6fe64cc72f58b3b42806be328f0dfc18, type: 3}
+  - {fileID: 21300000, guid: fa27a664d9c47864d9aa8926daef51cf, type: 3}
+  - {fileID: 21300000, guid: b2c0d7298f7fbbf47842d650b1b3ea6b, type: 3}
+  - {fileID: 21300000, guid: 245f48c1937489a4f900bfea1d30e118, type: 3}
+  - {fileID: 21300000, guid: a9d9f961fa89cae45a867cc0053b2554, type: 3}
+  - {fileID: 21300000, guid: 4a1a83a91d35a0940a9820603450c1d2, type: 3}
 --- !u!114 &1885561936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33255,6 +33267,7 @@ MonoBehaviour:
   JPrefab: {fileID: 1519796745054710, guid: 54a10e30ecbdbc140991480390ba2c4c, type: 2}
   FPrefab: {fileID: 1143454868406188, guid: 5706359300f06884fb6770d483ac1b35, type: 2}
   playSpace: {fileID: 1456983363}
+  minigameWindow: {fileID: 0}
   animator: {fileID: 1737907547}
   sequence: []
   JList:
@@ -33283,6 +33296,7 @@ MonoBehaviour:
   - {fileID: 1462038521}
   - {fileID: 888077787}
   - {fileID: 1083161968}
+  TestSlides: []
 --- !u!114 &2001906594
 MonoBehaviour:
   m_ObjectHideFlags: 0

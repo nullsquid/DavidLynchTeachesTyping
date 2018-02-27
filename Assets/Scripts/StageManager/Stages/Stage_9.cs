@@ -17,10 +17,13 @@ public class Stage_9 : Stage {
     public GameObject JPrefab;
     public GameObject FPrefab;
     public GameObject playSpace;
+	public GameObject minigameWindow;
 	public Animator animator;
     public List<string> sequence = new List<string>();
     public List<GameObject> JList = new List<GameObject>();
     public List<GameObject> FList = new List<GameObject>();
+	public List<Sprite> TestSlides = new List<Sprite> ();
+	int numberRight = 0;
     float t = 0;
 	public void OnEnable() {
 		if (TextPrinter.instance != null) {
@@ -59,11 +62,56 @@ public class Stage_9 : Stage {
     }
     void Update() {
         if(Input.GetKeyDown(KeyCode.F) && sequence[0] == "F") {
-            gameScrollBar.value = gameScrollBar.value + 0.115f;
+			switch (numberRight) {
+			case 0:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [1];
+				numberRight += 1;
+				break;
+			case 1:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [2];
+				numberRight += 1;
+				break;
+			case 2:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [3];
+				numberRight += 1;
+				break;
+			case 5:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [6];
+				numberRight += 1;
+				break;
+
+
+			}
+            //gameScrollBar.value = gameScrollBar.value + 0.115f;
             sequence.RemoveAt(0);
         }
         if (Input.GetKeyDown(KeyCode.J) && sequence[0] == "J") {
-            gameScrollBar.value = gameScrollBar.value + 0.115f;
+            //gameScrollBar.value = gameScrollBar.value + 0.115f;
+			switch (numberRight) {
+			case 3:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [4];
+				numberRight += 1;
+				break;
+			case 4:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [5];
+				numberRight += 1;
+				break;
+			case 6:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [7];
+				numberRight += 1;
+				break;
+			case 7:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [8];
+				numberRight += 1;
+				break;
+			case 8:
+				minigameWindow.GetComponent<Image> ().sprite = TestSlides [9];
+				numberRight += 1;
+				break;
+				
+
+				
+			}
             sequence.RemoveAt(0);
         }
         if(sequence.Count == 0) {
