@@ -53,10 +53,7 @@ public class TextPrinter : MonoBehaviour {
 
 		textToPrint = text;
         StartCoroutine(ParseText());
-        //List<Dictionary<string, string>> newSpeedChunks;
-        
-        //PRINT TEXT IS UNDER CONSTRUCTION
-        //StartCoroutine (PrintText (time));
+
 
 	}
 
@@ -116,64 +113,7 @@ public class TextPrinter : MonoBehaviour {
         yield return new WaitForSeconds(timeToPause);
         isPrinting = true;
     }
-
- //   IEnumerator PrintText(float timeBtwChars) {
-
- //       //Debug.Log (newPauseStringComponents[0]);
- //       //while(isPrinting == true)
- //       //{
- //       int pauseNumber = -1;
- //       int stringChunkNumber = -1;
- //       //bool parsingTag = false;
- //       for (int i = 0; i < textToPrint.Length; i++) {
- //           if(textToPrint[i] == '<') {
- //               stringChunkNumber++;
- //               string chunkToReplace = "";
- //               for(int j = i; j < textToPrint.Length; j++) {
- //                   if(textToPrint[j] == '>') {
-                        
- //                       break;
- //                   }
- //                   else {
- //                       chunkToReplace += textToPrint[j];
- //                   }
- //               }
- //               /*stringChunkNumber++;
- //               string chunkToReplace = "";
- //               string[] chunkToPrint = newStringSpeedComponents[stringChunkNumber].Split(';');
- //               */
- //           }
- //           /*
- //           //Debug.Log(textToPrint[i]);
- //           if ( textToPrint[i] == ',' || textToPrint[i] == '!') {
- //               if (textToPrint[i] != '<' || textToPrint[i] != '>') {
- //                   printText.text += textToPrint[i];
- //                   yield return new WaitForSeconds(0.085f);
- //               }
- //           }
-	//		//if (textToPrint [i] == '<') {
-				
-			
- //           else {
- //               if (isProcessingTag == false) {
- //                   //if (textToPrint [i] != '<' || textToPrint [i] != '>') {
- //                   printText.text += textToPrint[i];
- //                   yield return new WaitForSeconds(timeBtwChars);
- //                   //}
- //               }
- //               else if (isProcessingTag == true) {
- //                   yield return null;
- //               }
- //           }
- //           */
- //       }
-
- //       //}
-	//	if (onPrintComplete != null) {
-	//		Debug.Log ("print complete");
-	//		onPrintComplete ();
-	//	}
-	//}
+	
     IEnumerator PrintTaggedWords(string word, float time) {
         Debug.Log("rrrr");
         for(int i = 0; i < word.Length; i++) {
